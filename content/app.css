@@ -1,0 +1,18 @@
+﻿body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+span {
+  font-style: italic;
+}
+
+td {
+  border-width: 3px;
+  border-style: outset;
+  border-color: bisque;
+}
+
+#dogTextArea {
+  height: 200px;
+  width: 400px;
+}

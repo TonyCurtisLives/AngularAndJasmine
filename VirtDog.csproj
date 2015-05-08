@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{B04074E6-C061-420F-A7DB-3A7499B248B8}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\layout\layout.html" />
+    <Content Include="bower_components\angular-mocks\angular-mocks.js" />
+    <Content Include="bower_components\angular-mocks\ngAnimateMock.js" />
+    <Content Include="bower_components\angular-mocks\ngMock.js" />
+    <Content Include="bower_components\angular-mocks\ngMockE2E.js" />
+    <Content Include="content\app.css" />
+    <Content Include="bower_components\angular-route\angular-route.js" />
+    <Content Include="bower_components\angular-route\angular-route.min.js" />
+    <Content Include="bower_components\angular-route\index.js" />
+    <Content Include="bower_components\angular\angular-csp.css" />
+    <Content Include="bower_components\angular\angular.js" />
+    <Content Include="bower_components\angular\angular.min.js" />
+    <Content Include="bower_components\angular\index.js" />
+    <Content Include="index.html" />
+    <TypeScriptCompile Include="app\animals\otherAnimal.module.ts" />
+    <TypeScriptCompile Include="app\animals\otherAnimalEnemiesController.ts" />
+    <TypeScriptCompile Include="app\domain\dogDomainController.ts" />
+    <TypeScriptCompile Include="app\domain\domain.module.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jasmine\jasmine.d.ts" />
+    <TypeScriptCompile Include="test\spec\dogControllerSpec.ts" />
+    <Content Include="test\lib\angular-mocks\angular-mocks.js" />
+    <Content Include="test\lib\angular-mocks\ngAnimateMock.js" />
+    <Content Include="test\lib\angular-mocks\ngMock.js" />
+    <Content Include="test\lib\angular-mocks\ngMockE2E.js" />
+    <Content Include="test\lib\jasmine-2.2.0\boot.js" />
+    <Content Include="test\lib\jasmine-2.2.0\console.js" />
+    <Content Include="test\lib\jasmine-2.2.0\jasmine-html.js" />
+    <Content Include="test\lib\jasmine-2.2.0\jasmine.css" />
+    <Content Include="test\lib\jasmine-2.2.0\jasmine.js" />
+    <Content Include="test\lib\jasmine-2.2.0\jasmine_favicon.png" />
+    <Content Include="test\SpecRunner.html" />
+    <Content Include="web.config" />
+    <TypeScriptCompile Include="test\spec\dogObjectSpec.ts" />
+    <TypeScriptCompile Include="test\spec\tunesDataServiceSpec.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="app\animals\IAnimal.ts" />
+    <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\core\config.ts" />
+    <TypeScriptCompile Include="app\core\constants.ts" />
+    <TypeScriptCompile Include="app\core\core.module.ts" />
+    <TypeScriptCompile Include="app\core\tunesDataService.ts" />
+    <TypeScriptCompile Include="app\dogs\dog.module.ts" />
+    <TypeScriptCompile Include="app\dogs\dogController.ts" />
+    <TypeScriptCompile Include="app\dogs\IDog.ts" />
+    <TypeScriptCompile Include="app\objects\dogObject.ts" />
+    <TypeScriptCompile Include="app\objects\dogObject.module.ts" />
+    <TypeScriptCompile Include="app\people\people.module.ts" />
+    <TypeScriptCompile Include="app\people\masterController.ts" />
+    <TypeScriptCompile Include="app\tunes\tunes.module.ts" />
+    <TypeScriptCompile Include="app\tunes\tunesController.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-resource.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-route.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular-sanitize.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="test\lovedTracksTestData.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bower.json" />
+    <Content Include="bower_components\angular-route\.bower.json" />
+    <Content Include="bower_components\angular-route\angular-route.min.js.map" />
+    <Content Include="bower_components\angular-route\bower.json" />
+    <Content Include="bower_components\angular-route\package.json" />
+    <Content Include="bower_components\angular-route\README.md" />
+    <Content Include="bower_components\angular\.bower.json" />
+    <Content Include="bower_components\angular\angular.min.js.gzip" />
+    <Content Include="bower_components\angular\angular.min.js.map" />
+    <Content Include="bower_components\angular\bower.json" />
+    <Content Include="bower_components\angular\package.json" />
+    <Content Include="bower_components\angular\README.md" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="bower_components\angular-mocks\.bower.json" />
+    <Content Include="bower_components\angular-mocks\bower.json" />
+    <Content Include="bower_components\angular-mocks\package.json" />
+    <Content Include="bower_components\angular-mocks\README.md" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\places\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>VirtDog</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55593</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55593/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>

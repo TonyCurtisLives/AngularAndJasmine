@@ -1,0 +1,6 @@
+C:\dev\Laboratory\Angular\MyDemos\VirtDog\bin\VirtDog.dll.config
+C:\dev\Laboratory\Angular\MyDemos\VirtDog\bin\VirtDog.dll
+C:\dev\Laboratory\Angular\MyDemos\VirtDog\bin\VirtDog.pdb
+C:\dev\Laboratory\Angular\MyDemos\VirtDog\obj\Debug\VirtDog.dll
+C:\dev\Laboratory\Angular\MyDemos\VirtDog\obj\Debug\VirtDog.pdb
+C:\dev\Laboratory\Angular\MyDemos\VirtDog\obj\Debug\VirtDog.csprojResolveAssemblyReference.cache
