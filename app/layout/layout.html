@@ -1,57 +1,76 @@
 ﻿<div>
-  <table>
-    <tr>
-      <td>
-        Doggie Domain<br />
-      </td>
-      <td ng-controller="masterController as master">
-        Master<br />
-        Master's Name: {{master.familiarName}}<br />
-        Action: <select ng-model="master.selectedAction" ng-options="masterAction.actionName for masterAction in master.masterActions"></select><br />
-        Object: <select ng-model="master.selectedObject" ng-options="object.name for object in master.mastersObjects"></select><br />
-        <button ng-click="master.selectedAction.actionFunc(master.selectedObject)">Perform Action</button>
-      </td>
-      <td>
-        Random Animals<br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Master's Friends<br />
-      </td>
-      <td ng-controller="dogController as dog">
-        Dog<br />
-        Dog's Name: {{dog.familiarName}}<br />
-        Tail: {{dog.getTailStateText()}}<br />
-        Dog's Objects: <br />
-        <ul ng-repeat="chewObject in dog.chewObjects">
-          <li>{{chewObject.name}} - ${{chewObject.monetaryValue}} - {{chewObject.getSpitStateText()}} - {{chewObject.getStateText()}}</li>
-        </ul>
-        <textarea id="dogTextArea" ng-model="dog.blogContent"></textarea><br />
-        <button ng-click="dog.testBark()">Bark</button>
-      </td>
-      <td>
-        Animal Friends<br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        Other People<br />
-      </td>
-      <td ng-controller="tunesController as tunes">
-        Dog Tunes<br />
-        {{tunes.tunesError}}<br />
-        <button ng-click="tunes.getLovedTracks()">Mouth Watering Music</button><br />
-        <ul ng-repeat="track in tunes.tracksToDroolOver">
-          <li><a href="{{track.url}}">{{track.name}}</a> - {{track.artist.name}}</li>
-        </ul>
-      </td>
-      <td ng-controller="otherAnimalEnemiesController as enemies">
-        Animal Enemies<br />
-        Enemies: <select ng-model="enemies.selectedEnemy" ng-options="enemyAnimal.commonName for enemyAnimal in enemies.enemyAnimals"></select><br />
-        Last Action: {{enemies.lastAction}} <br />
-        <button ng-click="enemies.performAction()">Do Your Worst</button>
-      </td>
-    </tr>
-  </table>
+  <div id="dog-layout">
+    <div class="row">
+      <div class="col-md-3">
+          <div class="column-layout">
+            <h4>Doggie Domain</h4>
+            <img src="../../content/dogHouse.jpg" width="80px">
+          </div>
+      </div>
+      <div class="col-md-6" ng-controller="masterController as master">
+        <div class="column-layout">
+          <h4>Master</h4>
+          Master's Name: {{master.familiarName}}<br />
+          Action: <select ng-model="master.selectedAction" ng-options="masterAction.actionName for masterAction in master.masterActions"></select><br />
+          Object: <select ng-model="master.selectedObject" ng-options="object.name for object in master.mastersObjects"></select><br />
+          <button ng-click="master.selectedAction.actionFunc(master.selectedObject)">Perform Action</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="column-layout">
+          <h4>Random Animals</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="column-layout">
+          Master's Friends<br />
+        </div>
+      </div>
+      <div class="col-md-6" ng-controller="dogController as dog">
+        <div class="column-layout">
+          Dog<br />
+          Dog's Name: {{dog.familiarName}}<br />
+          Tail: {{dog.getTailStateText()}}<br />
+          Dog's Objects: <br />
+          <ul ng-repeat="chewObject in dog.chewObjects">
+            <li>{{chewObject.name}} - ${{chewObject.monetaryValue}} - {{chewObject.getSpitStateText()}} - {{chewObject.getStateText()}}</li>
+          </ul>
+          <textarea id="dogTextArea" ng-model="dog.blogContent"></textarea><br />
+          <button ng-click="dog.testBark()">Bark</button>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="column-layout">
+          Animal Friends<br />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <div class="column-layout">
+          Other People<br />
+        </div>
+      </div>
+      <div class="col-md-6" ng-controller="tunesController as tunes">
+        <div class="column-layout">
+            Dog Tunes<br />
+            {{tunes.tunesError}}<br />
+            <button ng-click="tunes.getLovedTracks()">Mouth Watering Music</button><br />
+            <ul ng-repeat="track in tunes.tracksToDroolOver">
+            <li><a href="{{track.url}}">{{track.name}}</a> - {{track.artist.name}}</li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-3" ng-controller="otherAnimalEnemiesController as enemies">
+        <div class="column-layout">
+            Animal Enemies<br />
+            Enemies: <select ng-model="enemies.selectedEnemy" ng-options="enemyAnimal.commonName for enemyAnimal in enemies.enemyAnimals"></select><br />
+            Last Action: {{enemies.lastAction}} <br />
+            <button ng-click="enemies.performAction()">Do Your Worst</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
