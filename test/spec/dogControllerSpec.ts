@@ -1,7 +1,10 @@
 ﻿/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
-/// <reference path="../../scripts/typings/jasmine/jasmine.d.ts" />
+/// <reference path="../../scripts/typings/angularjs/angular-mocks.d.ts" />
+/// <reference path="../../typings/main.d.ts" />
+
+// <reference path="../../scripts/typings/jasmine/jasmine.d.ts" />
 describe("dogController.js", function () {
-  beforeEach(module('app.dog'));
+  beforeEach(angular.mock.module('app.dog'));
   describe('dogController', function () {
     
     var $rootScope: ng.IRootScopeService,

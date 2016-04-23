@@ -1,6 +1,7 @@
 ﻿module dogsrus.virtdog {
   export class OtherAnimalEnemiesController {
-    enemyAnimals: IAnimal[] = [];
+    enemyAnimals: any[] = [];
+//    enemyAnimals: IAnimal[] = [];
     selectedEnemy: IAnimal;
     lastAction: string = '';
 
