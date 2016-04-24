@@ -12,9 +12,49 @@ td {
   border-color: bisque;
 }
 
+#masterParagraph {
+  text-align: left;
+  background-color: rgba(0, 128, 128, 0.1);
+}
+
+#domainParagraph {
+  text-align: left;
+  background-color: rgba(0, 128, 128, 0.1);
+}
+
 #dogTextArea {
-  height: 200px;
-  width: 400px;
+  height: 150px;
+  width: 300px;
+  background: url(ZeusMouthLight.jpg) center center no-repeat;
+  font-weight: bold;
+}
+
+#tunesTable {
+  height: 150px;
+  width: 300px;
+  background: url(HowlingLight.jpg) center center no-repeat;
+  font-weight: bold;
+}
+
+#tunesDimensions {
+  height: 150px;
+  width: 300px;
+}
+#tunesCell {
+  width: 300px;
+}
+
+#barkButtonDiv {
+  text-align: center;
+  width: 100%;
+}
+
+#barkButton {
+  margin-left: -20px;
+}
+
+#tunesButton {
+  margin-left: -33px;
 }
 
 .column-layout {

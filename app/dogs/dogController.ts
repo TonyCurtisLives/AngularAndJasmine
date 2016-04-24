@@ -4,6 +4,7 @@ module dogsrus.virtdog {
     // interface first 
     public speciesName = 'Canis familiaris';
     public familiarName = '';
+    public defaultAction = '';
 
     public coatStyle = '';
     public tailStyle = '';
@@ -102,12 +103,12 @@ module dogsrus.virtdog {
 
     private blog(blogEntry: string, addPreface: boolean = true): void {
       if (blogEntry !== '') {
-        this.blogContent += new Date().toLocaleString() + '\r\n';
         if (addPreface) {
-          this.blogContent += this.blogPreface[Math.floor(
-            (Math.random() * this.blogPreface.length))];
+          blogEntry = this.blogPreface[Math.floor(
+            (Math.random() * this.blogPreface.length))] + blogEntry;
         }
-        this.blogContent += blogEntry + '\r\n';
+        blogEntry = new Date().toLocaleString() + '\r\n' + blogEntry;
+        this.blogContent = blogEntry + '\r\n' + this.blogContent;
       }
     }
 

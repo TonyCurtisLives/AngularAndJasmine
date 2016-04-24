@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Virtual Dog Blog</title>
     <link rel="stylesheet" href="content/app.css" type="text/css" />
-    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" type="text/css" />
+    <!--<link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" type="text/css" />-->
     <!-- vendor.js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -24,6 +24,9 @@
     <script src="app/tunes/tunesController.js"></script>
     <script src="app/dogs/dog.module.js"></script>
     <script src="app/dogs/dogController.js"></script>
+    <script src="app/domain/domain.module.js"></script>
+    <script src="app/domain/dogDomain.js"></script>
+    <script src="app/domain/dogDomainController.js"></script>
     <script src="app/people/people.module.js"></script>
     <script src="app/people/masterController.js"></script>
     <script src="app/core/constants.js"></script>
@@ -32,6 +35,6 @@
   </head>
   <body>
     <h1>Virtual Dog Blog</h1>
-    <div ng-include="'app/layout/layout.html'"></div>
+    <div ng-include="'app/layout/layoutHex.html'"></div>
   </body>
 </html>

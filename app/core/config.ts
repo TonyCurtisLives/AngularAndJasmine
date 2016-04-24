@@ -8,6 +8,7 @@
       this.startDog = {
         familiarName: 'Fido',
         speciesName: 'Canis familiaris',
+        defaultAction: 'Lay around',
         coatStyle: '',
         tailStyle: '',
         earStyle: '',
@@ -27,6 +28,7 @@
       this.otherDogs.push({
         familiarName: 'Puppy Trouble',
         speciesName: 'Canis familiaris',
+        defaultAction: 'Lay around',
         coatStyle: '',
         tailStyle: '',
         earStyle: '',
@@ -45,6 +47,7 @@
         }, {
         familiarName: 'Rover',
         speciesName: 'Canis familiaris',
+        defaultAction: 'Lay around',
         coatStyle: '',
         tailStyle: '',
         earStyle: '',

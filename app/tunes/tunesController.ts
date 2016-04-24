@@ -4,6 +4,7 @@ module dogsrus.virtdog {
     public data = {};
     public tracksToDroolOver = [];
     public tunesError;
+    public tracksText = '';
 
     static $inject = ['tunesDataService', 'tunesConfig'];
     constructor(private tunesDataService: TunesDataService, private tunesConfig: TunesConfig) { }
@@ -18,6 +19,9 @@ module dogsrus.virtdog {
     getLovedTracks() {
       this.tunesDataService.getLovedTracks(this.tunesConfig.userName).then((data) => {
         this.tracksToDroolOver = (<any>data).lovedtracks.track;
+        this.tracksToDroolOver.forEach(track => {
+          this.tracksText += track.name + ' - ' + track.artist.name + '\r\n';
+        })
       }, (reason) => { this.tunesError = reason });
     }
   }

@@ -1,7 +1,7 @@
 ﻿module dogsrus.virtdog {
   export class OtherAnimalEnemiesController {
-    enemyAnimals: any[] = [];
-//    enemyAnimals: IAnimal[] = [];
+//    enemyAnimals: any[] = [];
+    enemyAnimals: IAnimal[] = [];
     selectedEnemy: IAnimal;
     lastAction: string = '';
 
@@ -19,13 +19,13 @@
       this.enemyAnimals.push(
         {
           speciesName: '',
-          commonName: 'Alley Cat',
+          familiarName: 'Alley Cat',
           defaultAction: eventNames.catHiss
         });
       this.enemyAnimals.push(
         {
           speciesName: '',
-          commonName: 'No Ordinary Rabbit',
+          familiarName: 'No Ordinary Rabbit',
           defaultAction: eventNames.decapitate
         });
       this.performAction = this.performAction.bind(this);

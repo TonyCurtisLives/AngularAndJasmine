@@ -66,7 +66,7 @@
       <div class="col-md-3" ng-controller="otherAnimalEnemiesController as enemies">
         <div class="column-layout">
             Animal Enemies<br />
-            Enemies: <select ng-model="enemies.selectedEnemy" ng-options="enemyAnimal.commonName for enemyAnimal in enemies.enemyAnimals"></select><br />
+            Enemies: <select ng-model="enemies.selectedEnemy" ng-options="enemyAnimal.familiarName for enemyAnimal in enemies.enemyAnimals"></select><br />
             Last Action: {{enemies.lastAction}} <br />
             <button ng-click="enemies.performAction()">Do Your Worst</button>
         </div>

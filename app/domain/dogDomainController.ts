@@ -1,10 +1,19 @@
 ﻿module dogsrus.virtdog {
   export class DogDomainController {
-    placeObjects: DogObject[] = [];
+    public placeObjects: DogObject[] = [];
+    public place: DogDomain;
+    public places: DogDomain[] = [];
 
-    constructor(public placeName: string) { }
+    static $inject = ['$rootScope', 'dogPlaces']
+    constructor(private $rootScope: ng.IRootScopeService, public dogPlaces: DogPlaces) {
+      this.initializeDomain();
+    }
 
-    private initializeObjects() {
+    // default initialization is home
+    private initializeDomain() {
+      this.place = this.dogPlaces.home;
+      this.places.push(this.dogPlaces.home);
+      this.places.push(this.dogPlaces.backYard);
       this.placeObjects.push(
         new DogObject('Really Nice Couch', true, false)
         );
@@ -12,4 +21,7 @@
       this.placeObjects[0].monetaryValue = 2000;
     }
   }
+  (() => {
+    dogsrus.virtdog.getModuleTunes().controller('dogDomainController', DogDomainController);
+  })();
 }

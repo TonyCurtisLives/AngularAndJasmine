@@ -1,0 +1,96 @@
+<div id="dogHexLayout">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,700,300,200,100,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="../../content/hexagons.css">
+<ul id="categories" class="clr">
+<li class="pusher"></li>
+<li class="pusher"></li>
+<li class="pusher"></li>
+	<li>
+    <div ng-controller="masterController as master">
+      <img src="../../content/20151127_121219.jpg" alt=""/>
+      <h1>Master: {{master.familiarName}}</h1>
+      <p id="masterParagraph">
+        Action: <select ng-model="master.selectedAction" ng-options="masterAction.actionName for masterAction in master.masterActions"></select><br />
+        Object: <select ng-model="master.selectedObject" ng-options="object.name for object in master.mastersObjects"></select><br />
+        <button ng-click="master.selectedAction.actionFunc(master.selectedObject)">Perform Action</button>        
+      </p>
+    </div>
+  </li>
+  <li>
+    <div ng-controller="dogDomainController as domainController">
+      <img src="../../content/IMG_2749.jpg" alt=""/>
+      <h1>Doggie Domain</h1>
+      <p id="domainParagraph">
+        Domain: <select ng-model="domainController.place" ng-options="dogPlace.name for dogPlace in domainController.places"></select><br /><br>
+        
+      </p>
+    </div>
+  </li>
+  <li class="pusher"></li>
+  <li>
+    <div ng-controller="dogController as dog">
+      <!--<div>
+        <span>-->
+          <!--<h3>Dog's Objects:</h3>-->
+          <br>
+          Dog Blog
+          <br>
+          <div id="barkButtonDiv">
+            <button id="barkButton" ng-click="dog.testBark()">Bark</button>
+          </div>
+          <br>
+          <div>
+          <br>
+          <!--<textarea ng-model="dog.blogContent"></textarea>-->
+          <textarea id="dogTextArea" ng-model="dog.blogContent"></textarea>
+          </div>
+          <br>
+          <!--<ul ng-repeat="chewObject in dog.chewObjects">
+            <li>{{chewObject.name}} - ${{chewObject.monetaryValue}} - {{chewObject.getSpitStateText()}} - {{chewObject.getStateText()}}</li>
+          </ul>-->
+          
+        <!--</span>
+      </div>-->
+    </div>
+  </li>
+  <li>
+      <div>
+        <img src="../../content/IMG_2823.jpg" alt=""/>
+    </div>
+  </li>
+  
+  <li>
+      <div ng-controller="tunesController as tunes">
+          <br>
+          Dog Tunes
+          <br>{{tunes.tunesError}}
+          <div id="barkButtonDiv">
+            <button id="tunesButton" ng-click="tunes.getLovedTracks()">Get Tunes</button>
+          </div>
+          <br>
+          <div>
+          <br>
+          <textarea id="tunesTable" ng-model="tunes.tracksText"></textarea>
+          </div>
+          <br>
+    </div>
+  </li>
+  
+  <li>
+      <div>
+        <img src="../../content/mailman.jpg" alt=""/>
+        <h1>Other People</h1>
+        <p>Select a person and an action</p>
+    </div>
+  </li>
+  <li>
+      <div>
+        <img src="../../content/4609603403_bdcd1a7813_o.jpg" alt=""/>
+        <h1>Other Animals</h1>
+        <p>Select an animal and an action</p>
+    </div>
+  </li>
+</ul>
+</div>
