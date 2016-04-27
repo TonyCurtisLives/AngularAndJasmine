@@ -14,6 +14,9 @@
       this.place = this.dogPlaces.home;
       this.places.push(this.dogPlaces.home);
       this.places.push(this.dogPlaces.backYard);
+      this.places.push(this.dogPlaces.frontYard);
+      this.places.push(this.dogPlaces.park);
+      this.places.push(this.dogPlaces.bathroom);
       this.placeObjects.push(
         new DogObject('Really Nice Couch', true, false)
         );

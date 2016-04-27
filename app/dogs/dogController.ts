@@ -1,4 +1,4 @@
-﻿'use strict'
+﻿'use strict';
 module dogsrus.virtdog {
   export class DogController implements IDog {
     // interface first 
@@ -29,7 +29,7 @@ module dogsrus.virtdog {
     public chewPromise: ng.IPromise<any>;
 
     // constructor next
-    static $inject = ['$rootScope', '$interval', 'dogConfig', 'eventNames']; 
+    static $inject = ['$rootScope', '$interval', 'dogConfig', 'eventNames'];
     constructor(
       private $rootScope: ng.IRootScopeService,
       private $interval: ng.IIntervalService,
@@ -91,10 +91,12 @@ module dogsrus.virtdog {
     }
 
     private initializeLists() {
-      this.blogPreface.push('Guess what just happened! ');
+      this.blogPreface.push('Guess what! ');
+      this.blogPreface.push('Ha! ');
+      this.blogPreface.push('Nice! ');
       this.blogPreface.push('You\'ll never believe this! ');
-      this.blogPreface.push('Oh my heck! ');
-      this.blogPreface.push('So I was standing there minding my own business. ');
+      this.blogPreface.push('OMG! ');
+      this.blogPreface.push('So I\'m laying here. ');
       for (var x = 1; x < this.dogConfig.otherDogs.length; x++) {
         this.dogList.push(this.dogConfig.otherDogs[x]);
       }
@@ -107,7 +109,7 @@ module dogsrus.virtdog {
           blogEntry = this.blogPreface[Math.floor(
             (Math.random() * this.blogPreface.length))] + blogEntry;
         }
-        blogEntry = new Date().toLocaleString() + '\r\n' + blogEntry;
+        blogEntry = new Date().toLocaleString() + ': ' + blogEntry;
         this.blogContent = blogEntry + '\r\n' + this.blogContent;
       }
     }
@@ -115,14 +117,12 @@ module dogsrus.virtdog {
     private fetch(fetchObject: DogObject) {
       var blogEntry = 'My master just threw a '
         + fetchObject.name + '. '
-        + 'I ran with reckless abandon to grab the ' + fetchObject.name;
+        + 'I ran like mad to grab the ' + fetchObject.name;
       if (fetchObject.flies) {
-        blogEntry += ' and leapt high into the air! Of course, I snatched it '
-          + 'right out of the air with a hang time resembling that of Air Jordan!';
+        blogEntry += ' and leapt like Air Jordan, snatching in mid flight!';
       }
       else {
-        blogEntry += ' and, of course, I snatched it far sooner than any human '
-          + 'could have thought possible!'
+        blogEntry += ' snapping it up far sooner than imaginable!';
       }
 
       if (fetchObject.chewy && !this.chewObjects.some((chewObject) => {
@@ -131,8 +131,8 @@ module dogsrus.virtdog {
         this.chewObjects.push(fetchObject);
       }
       fetchObject.chewOn();
-      blogEntry += '\r\nI gave the ' + fetchObject.name
-        + ' a good chew or two and returned it.'
+      blogEntry += ' I gave the ' + fetchObject.name
+        + ' a good chew or two and dropped it.';
 
       this.blog(blogEntry);
     }
@@ -150,8 +150,8 @@ module dogsrus.virtdog {
       blogEntry = 'My master just fed me ' + food.name;
       if (food.edible) {
         if (food.name === 'dog food') {
-          blogEntry += '! I devoured the ' + food.name
-            + ' in roughly 30 seconds!';
+          blogEntry += '! I ignored it for an hour, dumped it out on the floor, then ate the ' + food.name
+            + ' one piece at a time!';
           this.tailState = DogTailState.wagging;
         }
         else {
@@ -162,7 +162,7 @@ module dogsrus.virtdog {
       }
       else {
         blogEntry += '? I sniffed the ' + food.name
-          + ' and looked up at my master with my head tilted.';
+          + ' and tilted my head.';
         this.tailState = DogTailState.elevated;
       }
       this.blog(blogEntry);
@@ -173,15 +173,21 @@ module dogsrus.virtdog {
         this.chewObjects.sort((chewObject1, chewObject2) => {
           return chewObject1.expensive > chewObject2.expensive ? -1 :
             chewObject1.expensive < chewObject2.expensive ? 1 :
-              chewObject1.irreplaceable ? -1 : 0
+              chewObject1.irreplaceable ? -1 : 0;
         });
       }
 
       for (var x = 0; x < this.chewObjects.length; x++) {
         if (this.chewObjects[x].chewy) {
           this.chewObjects[x].chewOn();
-          this.blog('Suddenly I got an urge to chew on something! '
-            + 'I happily chewed on the ' + this.chewObjects[x].name + '!');
+          var description = 'Suddenly I got an urge to chew! '
+            + 'I happily chewed on the ' + this.chewObjects[x].name + '!'
+            + ' The ' + this.chewObjects[x].name + ' is now '
+            + this.chewObjects[x].getSpitStateText() + ' and '
+            + this.chewObjects[x].getStateText()
+            + ((this.chewObjects[x].monetaryValue < 1) ? '.' : (' and is now worth $'
+            + Math.round(this.chewObjects[x].monetaryValue) + '.'));
+          this.blog(description);
           return;
         }
       }
@@ -194,10 +200,10 @@ module dogsrus.virtdog {
     private decapitateHandler() {
       this.stopChewing();
       this.tailState = DogTailState.tucked;
-      this.blog('Oh no! Not the rab..................................');
+      this.blog('Oh no! Not the rab...');
     }
   }
   (() => {
     dogsrus.virtdog.getModuleDog().controller('dogController', DogController);
   })();
-} 
+}

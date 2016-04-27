@@ -20,7 +20,8 @@
   </li>
   <li>
     <div ng-controller="dogDomainController as domainController">
-      <img src="../../content/IMG_2749.jpg" alt=""/>
+      <!--<img ng-src="../../content/zeushome.jpg" alt=""/>-->
+      <img ng-src="../../content/{{domainController.place.imagePath}}" alt=""/>
       <h1>Doggie Domain</h1>
       <p id="domainParagraph">
         Domain: <select ng-model="domainController.place" ng-options="dogPlace.name for dogPlace in domainController.places"></select><br /><br>
@@ -80,7 +81,7 @@
   
   <li>
       <div>
-        <img src="../../content/mailman.jpg" alt=""/>
+        <img src="../../content/zeuspostal2.gif" alt=""/>
         <h1>Other People</h1>
         <p>Select a person and an action</p>
     </div>

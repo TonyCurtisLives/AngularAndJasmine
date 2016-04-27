@@ -23,25 +23,25 @@ td {
 }
 
 #dogTextArea {
-  height: 150px;
-  width: 300px;
+  height: 275px;
+  width: 320px;
   background: url(ZeusMouthLight.jpg) center center no-repeat;
   font-weight: bold;
 }
 
 #tunesTable {
-  height: 150px;
-  width: 300px;
+  height: 275px;
+  width: 320px;
   background: url(HowlingLight.jpg) center center no-repeat;
   font-weight: bold;
 }
 
 #tunesDimensions {
-  height: 150px;
-  width: 300px;
+  height: 275px;
+  width: 320px;
 }
 #tunesCell {
-  width: 300px;
+  width: 320px;
 }
 
 #barkButtonDiv {

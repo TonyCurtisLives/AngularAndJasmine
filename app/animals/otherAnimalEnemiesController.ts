@@ -1,11 +1,10 @@
 ﻿module dogsrus.virtdog {
   export class OtherAnimalEnemiesController {
-//    enemyAnimals: any[] = [];
     enemyAnimals: IAnimal[] = [];
     selectedEnemy: IAnimal;
     lastAction: string = '';
 
-    static $inject = ['$rootScope', 'eventNames']
+    static $inject = ['$rootScope', 'eventNames'];
     constructor(private $rootScope: ng.IRootScopeService, private eventNames: EventNames) {
       this.intializeAnimalList(eventNames);
     }

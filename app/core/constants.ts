@@ -26,12 +26,13 @@
     apiKey = '42ffa848055f141ed5018c49334fce47';
     userName = 'FidoSonOfRover';
   }
-  
+
   export class DogPlaces {
-    home: DogDomain = {name: 'home', imagePath: 'IMG_2749', indoors: true, placeObjects: []};
-    frontYard: DogDomain = {name: 'frontYard', imagePath: '', indoors: false, placeObjects: []};
-    backYard: DogDomain = {name: 'backYard', imagePath: '', indoors: false, placeObjects: []};
-    park: DogDomain = {name: 'park', imagePath: '', indoors: false, placeObjects: []};
+    home: DogDomain = {name: 'home', imagePath: 'zeushome.jpg', indoors: true, placeObjects: []};
+    frontYard: DogDomain = {name: 'frontYard', imagePath: 'zeusfrontyard.jpg', indoors: false, placeObjects: []};
+    backYard: DogDomain = {name: 'backYard', imagePath: 'zeusbackyard.jpg', indoors: false, placeObjects: []};
+    park: DogDomain = {name: 'park', imagePath: 'zeuspark.jpg', indoors: false, placeObjects: []};
+    bathroom: DogDomain = {name: 'bathroom', imagePath: 'fireplug.jpg', indoors: false, placeObjects: []};
   }
 
   (() => {
