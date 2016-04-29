@@ -27,6 +27,8 @@ module dogsrus.virtdog {
     public chewObjects: DogObject[] = [];
     public dogList: IDog[] = [];
     public chewPromise: ng.IPromise<any>;
+    
+    public dogDomain: DogDomain = null;
 
     // constructor next
     static $inject = ['$rootScope', '$interval', 'dogConfig', 'eventNames'];
@@ -80,6 +82,21 @@ module dogsrus.virtdog {
       this.$rootScope.$on(this.eventNames.catHiss, (event, args) => {
         this.bark(10);
       });
+      this.$rootScope.$on(this.eventNames.personPet, (event, args) => {
+        this.getPetted(<IAnimal>args);
+      });
+      this.$rootScope.$on(this.eventNames.animalRun, (event, args) => {
+        this.giveChase(<IAnimal>args);
+      });
+      this.$rootScope.$on(this.eventNames.changeDomain, (event, args) => {
+        this.setDogDomain(<DogDomain>args);
+      });
+      this.$rootScope.$on(this.eventNames.commandStay, (event, args) => {
+        this.respondToCommand(args, this.eventNames.commandStay);
+      });
+      this.$rootScope.$on(this.eventNames.commandShake, (event, args) =>{
+        this.respondToCommand(args, this.eventNames.commandShake);
+      })
 
       // bind all event handlers to this
       this.fetch = this.fetch.bind(this);
@@ -88,6 +105,10 @@ module dogsrus.virtdog {
       this.decapitateHandler = this.decapitateHandler.bind(this);
       this.stopChewing = this.stopChewing.bind(this);
       this.bark = this.bark.bind(this);
+      this.getPetted = this.getPetted.bind(this);
+      this.giveChase = this.giveChase.bind(this);
+      this.setDogDomain = this.setDogDomain.bind(this);
+      this.respondToCommand = this.respondToCommand.bind(this);
     }
 
     private initializeLists() {
@@ -109,7 +130,8 @@ module dogsrus.virtdog {
           blogEntry = this.blogPreface[Math.floor(
             (Math.random() * this.blogPreface.length))] + blogEntry;
         }
-        blogEntry = new Date().toLocaleString() + ': ' + blogEntry;
+        //blogEntry = new Date().toLocaleTimeString() + ': ' + blogEntry;
+        blogEntry = new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'}) + ': ' + blogEntry;
         this.blogContent = blogEntry + '\r\n' + this.blogContent;
       }
     }
@@ -202,6 +224,47 @@ module dogsrus.virtdog {
       this.tailState = DogTailState.tucked;
       this.blog('Oh no! Not the rab...');
     }
+    
+    private getPetted(person: IAnimal){
+      this.tailState = DogTailState.wagging;
+      var description = person.familiarName
+        + ' just gave me a good petting! I smile and look at '
+        + person.familiarName + ' with my big dog eyes look!';
+      this.blog(description, true);
+    }
+
+    private giveChase(someAnimal: IAnimal){
+      this.tailState = DogTailState.wagging;
+      var description = 'I just chased ' + someAnimal.familiarName
+        + ' through the ' + this.dogDomain.name + '!!!';
+      this.blog(description, true);
+    }
+    
+    private setDogDomain(dogDomain: DogDomain){
+      this.dogDomain = dogDomain;
+    }
+    
+    private respondToCommand(somePerson: IAnimal, commandName: string){
+      var description = somePerson.familiarName + ' just told me to ' + commandName + '! ';
+      if(somePerson.familiarName === 'The Mailman'){
+        this.giveChase(somePerson);
+        this.blog(description, false);
+        return;
+      }
+      if(commandName === this.eventNames.commandStay){
+        if(somePerson.familiarName === 'The Alpha Male'){
+          description += 'I stayed.';
+        }
+        else{
+          description += 'I ignored it.';
+        }
+      }
+      else{
+        description += 'I did it.';
+      }
+      this.blog(description, true);
+    }
+
   }
   (() => {
     dogsrus.virtdog.getModuleDog().controller('dogController', DogController);

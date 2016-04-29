@@ -15,7 +15,8 @@ module dogsrus.virtdog {
       'app.dog',
       'app.people',
       'app.tunes',
-      'app.otherAnimal'
+      'app.otherAnimal',
+      'app.dogDomain'
       //,'app.animals'
       //,'app.places'
     ]);

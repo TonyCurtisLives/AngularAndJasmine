@@ -22,6 +22,11 @@ td {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
+#personParagraph {
+  text-align: left;
+  background-color: rgba(0, 128, 128, 0.1);
+}
+
 #dogTextArea {
   height: 275px;
   width: 320px;
@@ -32,7 +37,7 @@ td {
 #tunesTable {
   height: 275px;
   width: 320px;
-  background: url(HowlingLight.jpg) center center no-repeat;
+  background: url(HowlingLight2.jpg) center center no-repeat;
   font-weight: bold;
 }
 

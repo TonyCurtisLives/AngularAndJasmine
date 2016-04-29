@@ -4,9 +4,13 @@
     public place: DogDomain;
     public places: DogDomain[] = [];
 
-    static $inject = ['$rootScope', 'dogPlaces']
-    constructor(private $rootScope: ng.IRootScopeService, public dogPlaces: DogPlaces) {
+    static $inject = ['$rootScope', 'dogPlaces', 'eventNames']
+    constructor(private $rootScope: ng.IRootScopeService, public dogPlaces: DogPlaces, private eventNames: EventNames) {
       this.initializeDomain();
+    }
+    
+    public domainSelected(domain: DogDomain) {
+      this.$rootScope.$broadcast(this.eventNames.changeDomain, domain);
     }
 
     // default initialization is home
@@ -25,6 +29,6 @@
     }
   }
   (() => {
-    dogsrus.virtdog.getModuleTunes().controller('dogDomainController', DogDomainController);
+    dogsrus.virtdog.getModuleDogDomain().controller('dogDomainController', DogDomainController);
   })();
 }

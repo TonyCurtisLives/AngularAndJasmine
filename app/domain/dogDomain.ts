@@ -6,7 +6,4 @@ module dogsrus.virtdog {
     public imagePath = '';
     public placeObjects: DogObject[] = [];
   }
-  (() => {
-    dogsrus.virtdog.getModuleTunes().controller('tunesController', TunesController);
-  })();
 }
