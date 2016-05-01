@@ -12,17 +12,7 @@ td {
   border-color: bisque;
 }
 
-#masterParagraph {
-  text-align: left;
-  background-color: rgba(0, 128, 128, 0.1);
-}
-
-#domainParagraph {
-  text-align: left;
-  background-color: rgba(0, 128, 128, 0.1);
-}
-
-#personParagraph {
+.sliderParagraph {
   text-align: left;
   background-color: rgba(0, 128, 128, 0.1);
 }
