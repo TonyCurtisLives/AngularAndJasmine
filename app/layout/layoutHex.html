@@ -12,7 +12,7 @@
       <div ng-controller="masterController as master">
         <img src="../../content/20151127_121219.jpg" alt="" />
         <h1>Master: {{master.familiarName}}</h1>
-        <p id="masterParagraph">
+        <p class="sliderParagraph">
           Action: <select ng-model="master.selectedAction" ng-options="masterAction.actionName for masterAction in master.masterActions"></select><br
           /> Object: <select ng-model="master.selectedObject" ng-options="object.name for object in master.mastersObjects"></select><br
           />
@@ -25,13 +25,12 @@
         <!--<img ng-src="../../content/zeushome.jpg" alt=""/>-->
         <img ng-src="../../content/{{domainController.place.imagePath}}" alt="" />
         <h1>Doggie Domain</h1>
-        <p id="domainParagraph">
+        <p class="sliderParagraph">
           Domain: <select ng-model="domainController.place" 
                           ng-options="dogPlace.name for dogPlace in domainController.places" 
-                          ng-change="domainController.domainSelected(domainController.place)"
-                          ></select><br
-          /><br>
-
+                          ng-change="domainController.domainSelected(domainController.place)">
+                  </select><br>
+                  <br>
         </p>
       </div>
     </li>
@@ -87,7 +86,7 @@
       <div ng-controller="peopleController as peopleCtrl">
         <img src="../../content/zeuspostal2.gif" alt="" />
         <h1>Other People</h1>
-        <p id="personParagraph">
+        <p class="sliderParagraph">
           Person: <select ng-model="peopleCtrl.selectedPerson" ng-options="person.familiarName for person in peopleCtrl.people"></select><br/> 
           Action: <select ng-model="peopleCtrl.selectedAction" ng-options="personAction.actionName for personAction in peopleCtrl.personActions"></select><br/>
           <button ng-click="peopleCtrl.selectedAction.actionFunc(peopleCtrl.selectedPerson)">Perform Action</button>
@@ -95,10 +94,16 @@
       </div>
     </li>
     <li>
-      <div>
+      <div ng-controller="otherAnimalController as otherAnimalCtrl">
         <img src="../../content/4609603403_bdcd1a7813_o.jpg" alt="" />
         <h1>Other Animals</h1>
-        <p>Select an animal and an action</p>
+        <p class="sliderParagraph">
+          Animal: <select ng-model="otherAnimalCtrl.selectedAnimal" 
+                          ng-options="animal.familiarName for animal in otherAnimalCtrl.otherAnimals" 
+                          ng-change="otherAnimalCtrl.performAction()">
+                  </select><br>
+                  <br>
+        </p>
       </div>
     </li>
   </ul>

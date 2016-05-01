@@ -68,11 +68,17 @@ module dogsrus.virtdog {
     private initializeEvents() {
       // setup event handlers
       this.$rootScope.$on(this.eventNames.masterThrow, (event, args) => {
-        this.fetch(<DogObject>args);
+        this.handleEvent(event, args);
       });
       this.$rootScope.$on(this.eventNames.masterFeed, (event, args) => {
         this.eat(args);
       });
+      // this.$rootScope.$on(this.eventNames.masterThrow, (event, args) => {
+      //   this.fetch(<DogObject>args);
+      // });
+      // this.$rootScope.$on(this.eventNames.masterFeed, (event, args) => {
+      //   this.eat(args);
+      // });
       this.chewPromise = this.$interval(() => {
         this.chewOnSomething()
       }, this.chewUrgeInterval, 0, true);
@@ -92,15 +98,19 @@ module dogsrus.virtdog {
         this.setDogDomain(<DogDomain>args);
       });
       this.$rootScope.$on(this.eventNames.commandStay, (event, args) => {
-        this.respondToCommand(args, this.eventNames.commandStay);
+        this.respondToCommand(<IAnimal>args, this.eventNames.commandStay);
       });
       this.$rootScope.$on(this.eventNames.commandShake, (event, args) =>{
-        this.respondToCommand(args, this.eventNames.commandShake);
-      })
+        this.respondToCommand(<IAnimal>args, this.eventNames.commandShake);
+      });
+      this.$rootScope.$on(this.eventNames.dogBark, (event, args) => {
+        this.getExcited(<IAnimal>args);
+      });
 
       // bind all event handlers to this
-      this.fetch = this.fetch.bind(this);
-      this.eat = this.eat.bind(this);
+      // this.fetch = this.fetch.bind(this);
+      // this.eat = this.eat.bind(this);
+      this.handleEvent = this.handleEvent.bind(this);
       this.chewOnSomething = this.chewOnSomething.bind(this);
       this.decapitateHandler = this.decapitateHandler.bind(this);
       this.stopChewing = this.stopChewing.bind(this);
@@ -109,6 +119,7 @@ module dogsrus.virtdog {
       this.giveChase = this.giveChase.bind(this);
       this.setDogDomain = this.setDogDomain.bind(this);
       this.respondToCommand = this.respondToCommand.bind(this);
+      this.getExcited = this.getExcited.bind(this);
     }
 
     private initializeLists() {
@@ -122,6 +133,19 @@ module dogsrus.virtdog {
         this.dogList.push(this.dogConfig.otherDogs[x]);
       }
       this.dogList.push(this.dogConfig.startDog);
+    }
+    
+    private handleEvent(event, args) {
+      switch (event) {
+        case this.eventNames.masterThrow:
+          this.fetch(<DogObject>args);
+          break;
+        case this.eventNames.masterFeed:
+          this.eat(args);
+        default:
+          this.displayConfusion(event, args);
+          break;
+      }
     }
 
     private blog(blogEntry: string, addPreface: boolean = true): void {
@@ -263,6 +287,15 @@ module dogsrus.virtdog {
         description += 'I did it.';
       }
       this.blog(description, true);
+    }
+    
+    private getExcited(someAnimal: IAnimal) {
+      var description = someAnimal.familiarName + ' wants to play with me!!! I wag my tail vigorously whine and jump up!!!';
+      this.blog(description, true);
+    }
+    
+    private displayConfusion(event, args) {
+      this.blog('I tilt my head at ' + args + ', akward...');
     }
 
   }
