@@ -1,4 +1,4 @@
-﻿module dogsrus.virtdog {
+﻿namespace dogsrus.virtdog {
   export class OtherAnimalController {
     public otherAnimals: IAnimal[] = [];
     public selectedAnimal: IAnimal;

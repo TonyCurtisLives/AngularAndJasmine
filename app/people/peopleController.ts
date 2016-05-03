@@ -1,17 +1,17 @@
-﻿module dogsrus.virtdog {
+﻿namespace dogsrus.virtdog {
   export class PersonAction {
     constructor(
       public actionName: string,
       public actionFunc: (actionObject: DogObject) => {}
-    ) {}
+    ) { }
   }
 
   export class PeopleController {
     public people: IAnimal[] = [];
     public selectedPerson: IAnimal;
 
-    selectedAction: PersonAction;
-    personActions: PersonAction[] = [];
+    public selectedAction: PersonAction;
+    public personActions: PersonAction[] = [];
 
     static $inject = ['$rootScope', 'eventNames'];
     constructor(private $rootScope: ng.IRootScopeService, private eventNames: EventNames) {
@@ -28,27 +28,27 @@
       this.personActions[3].actionFunc = this.personActions[3].actionFunc.bind(this);
     }
 
-    commandStay(person) {
+    public commandStay(person) {
       this.$rootScope.$broadcast(this.eventNames.commandStay, person);
       return {};
     }
 
-    commandShake(person) {
+    public commandShake(person) {
       this.$rootScope.$broadcast(this.eventNames.commandShake, person);
       return {};
     }
-    
-    runAway(person) {
+
+    public runAway(person) {
       this.$rootScope.$broadcast(this.eventNames.animalRun, person);
       return {};
     }
 
-    pet(person) {
+    public pet(person) {
       this.$rootScope.$broadcast(this.eventNames.personPet, person);
       return {};
     }
 
-// --------------------- private stuff down here -------------------------------
+    // --------------------- private stuff down here -------------------------------
     private initializeLists() {
       this.personActions.push(new PersonAction('Command Zeus to Stay', this.commandStay));
       this.personActions.push(new PersonAction('Command Zeus to Shake', this.commandShake));
@@ -57,23 +57,23 @@
 
       this.people.push(
         {
-          speciesName: 'Homo Sapiens',
+          defaultAction: this.eventNames.personPet,
           familiarName: 'The Alpha Male',
-          defaultAction: this.eventNames.personPet
+          speciesName: 'Homo Sapiens'
         }
       );
       this.people.push(
         {
-          speciesName: 'Homo Sapiens',
+          defaultAction: this.eventNames.personPet,
           familiarName: 'The She Wolf',
-          defaultAction: this.eventNames.personPet
+          speciesName: 'Homo Sapiens'
         }
       );
       this.people.push(
         {
-          speciesName: 'Homo Sapiens',
+          defaultAction: this.eventNames.animalRun,
           familiarName: 'The Mailman',
-          defaultAction: this.eventNames.animalRun
+          speciesName: 'Homo Sapiens'
         }
       );
     }

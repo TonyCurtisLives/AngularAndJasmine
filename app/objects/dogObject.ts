@@ -1,4 +1,4 @@
-﻿module dogsrus.virtdog {
+﻿namespace dogsrus.virtdog {
   export enum DogSpitState {
     noSpit,
     someSpit,
@@ -29,7 +29,7 @@
       public name: string,
       public chewy: boolean,
       public edible: boolean
-      ) { }
+    ) { }
 
     public getSpitStateText() {
       return DogSpitState[this.spitState];
@@ -62,8 +62,7 @@
       if (this.state === ObjectState.veryChewed) {
         if (this.shredable) {
           this.state++;
-        }
-        else {
+        } else {
           this.state += 2;
         }
       } else if (this.state < ObjectState.structurallyDamaged) {

@@ -1,5 +1,5 @@
-﻿'use strict'
-module dogsrus.virtdog {
+﻿'use strict';
+namespace dogsrus.virtdog {
   (() => {
     angular.module('app.people', []);
   })();

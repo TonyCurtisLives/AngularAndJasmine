@@ -1,9 +1,9 @@
-﻿module dogsrus.virtdog {
+﻿namespace dogsrus.virtdog {
   export class MasterAction {
     constructor(
       public actionName: string,
       public actionFunc: (actionObject: DogObject) => {}
-      ) { }
+    ) { }
   }
 
   export class MasterController implements IAnimal {
@@ -11,10 +11,10 @@
     public familiarName: string;
     public defaultAction: string;
 
-    selectedAction: MasterAction;
-    masterActions: MasterAction[] = [];
-    selectedObject: DogObject;
-    mastersObjects: DogObject[] = [];
+    public selectedAction: MasterAction;
+    public masterActions: MasterAction[] = [];
+    public selectedObject: DogObject;
+    public mastersObjects: DogObject[] = [];
 
     static $inject = ['$rootScope', 'eventNames'];
     constructor(private $rootScope: ng.IRootScopeService, private eventNames: EventNames) {
@@ -28,22 +28,22 @@
       this.masterActions[1].actionFunc = this.masterActions[1].actionFunc.bind(this);
     }
 
-    throwSomething(object) {
+    public throwSomething(object) {
       this.$rootScope.$broadcast(this.eventNames.masterThrow, object);
       return {};
     }
 
-    feedTheDog(food) {
+    public feedTheDog(food) {
       this.$rootScope.$broadcast(this.eventNames.masterFeed, food);
       return {};
     }
 
-// --------------------- private stuff down here -------------------------------
+    // --------------------- private stuff down here -------------------------------
     private initializeLists() {
       this.masterActions.push(new MasterAction('Throw Object', this.throwSomething));
       this.masterActions.push(new MasterAction('Feed', this.feedTheDog));
 
-      var dogObject = new DogObject('Babe Ruth autographed baseball', true, false);
+      let dogObject = new DogObject('Babe Ruth autographed baseball', true, false);
       dogObject.bounces = true;
       dogObject.expensive = true;
       dogObject.irreplaceable = true;

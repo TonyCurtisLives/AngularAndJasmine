@@ -1,4 +1,4 @@
-﻿module dogsrus.virtdog {
+﻿namespace dogsrus.virtdog {
   export class EventNames {
     public dogBark = 'dogBark';
     public dogChase = 'dogChase';
@@ -28,19 +28,19 @@
     public commandShake = 'shake';
     public changeDomain = 'changeDomain';
   }
-  
+
   export class TunesConfig {
-    tunesUrl = 'http://ws.audioscrobbler.com/2.0/';
-    apiKey = '42ffa848055f141ed5018c49334fce47';
-    userName = 'FidoSonOfRover';
+    public tunesUrl = 'http://ws.audioscrobbler.com/2.0/';
+    public apiKey = '42ffa848055f141ed5018c49334fce47';
+    public userName = 'FidoSonOfRover';
   }
 
   export class DogPlaces {
-    home: DogDomain = {name: 'home', imagePath: 'zeushome.jpg', indoors: true, placeObjects: []};
-    frontYard: DogDomain = {name: 'front yard', imagePath: 'zeusfrontyard.jpg', indoors: false, placeObjects: []};
-    backYard: DogDomain = {name: 'back yard', imagePath: 'zeusbackyard.jpg', indoors: false, placeObjects: []};
-    park: DogDomain = {name: 'park', imagePath: 'zeuspark.jpg', indoors: false, placeObjects: []};
-    bathroom: DogDomain = {name: 'bathroom', imagePath: 'fireplug.jpg', indoors: false, placeObjects: []};
+    public home: DogDomain = { name: 'home', imagePath: 'zeushome.jpg', indoors: true, placeObjects: [] };
+    public frontYard: DogDomain = { name: 'front yard', imagePath: 'zeusfrontyard.jpg', indoors: false, placeObjects: [] };
+    public backYard: DogDomain = { name: 'back yard', imagePath: 'zeusbackyard.jpg', indoors: false, placeObjects: [] };
+    public park: DogDomain = { name: 'park', imagePath: 'zeuspark.jpg', indoors: false, placeObjects: [] };
+    public bathroom: DogDomain = { name: 'bathroom', imagePath: 'fireplug.jpg', indoors: false, placeObjects: [] };
   }
 
   (() => {

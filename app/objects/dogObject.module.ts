@@ -1,5 +1,5 @@
-﻿'use strict'
-module dogsrus.virtdog {
+﻿'use strict';
+namespace dogsrus.virtdog {
   (() => {
     angular.module('app.dogObject', []);
   })();
@@ -8,4 +8,4 @@ module dogsrus.virtdog {
   export function getModuleDogObject(): ng.IModule {
     return angular.module('app.dogObject');
   }
-} 
+}
