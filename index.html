@@ -7,18 +7,26 @@
     <link rel="stylesheet" href="content/app.css" type="text/css" />
     <!--<link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" type="text/css" />-->
     <!-- vendor.js -->
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- bootstrapping -->
-    <script src="app/app.module.js"></script>
+        <script>
+            System.config({
+                packages: {'app': {defaultExtension: 'js'}}
+            });
+            System.import('app/app.module.js');
+        </script>
+    
+    <!--<script src="app/app.module.js"></script>-->
     <!-- core modules -->
-    <script src="app/core/core.module.js"></script>
+    <!--<script src="app/core/core.module.js"></script>
     <script src="app/dogs/idog.js"></script>
     <script src="app/core/config.js"></script>
     <script src="app/core/constants.js"></script>
-    <script src="app/core/tunesDataService.js"></script>
+    <script src="app/core/tunesDataService.js"></script>-->
     <!-- dogs and other animals (but not rabbits) -->
-    <script src="app/objects/dogObject.module.js"></script>
+    <!--<script src="app/objects/dogObject.module.js"></script>
     <script src="app/objects/dogObject.js"></script>
     <script src="app/tunes/tunes.module.js"></script>
     <script src="app/tunes/tunesController.js"></script>
@@ -32,7 +40,7 @@
     <script src="app/people/masterController.js"></script>
     <script src="app/core/constants.js"></script>
     <script src="app/animals/otherAnimal.Module.js"></script>
-    <script src="app/animals/otherAnimalController.js"></script>
+    <script src="app/animals/otherAnimalController.js"></script>-->
   </head>
   <body>
     <h1>Virtual Dog Blog</h1>

@@ -1,8 +1,10 @@
-﻿describe('tunesDataService.js', function () {
+﻿import {TunesConfig} from '../../app/core/constants';
+
+describe('tunesDataService.js', function () {
   describe('tunesDataService', function () {
     var $service: ng.IServiceProvider,
       httpBackend: ng.IHttpBackendService,
-      tunesConfig: dogsrus.virtdog.TunesConfig;
+      tunesConfig: TunesConfig;
     tunesConfig = {
       tunesUrl: 'http://thisIsATest/',
       apiKey: 'testAPIKey',

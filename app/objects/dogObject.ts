@@ -1,4 +1,4 @@
-﻿module dogsrus.virtdog {
+﻿// module dogsrus.virtdog {
   export enum DogSpitState {
     noSpit,
     someSpit,
@@ -71,4 +71,4 @@
       }
     }
   }
-}
+// }

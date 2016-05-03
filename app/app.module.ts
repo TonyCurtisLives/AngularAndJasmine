@@ -1,6 +1,6 @@
 ﻿/// <reference path="../scripts/typings/angularjs/angular.d.ts" />
 'use strict';
-module dogsrus.virtdog {
+// module dogsrus.virtdog {
   (() => {
     angular.module('app', [
       // Everybody has access to these
@@ -26,4 +26,4 @@ module dogsrus.virtdog {
   export function getModuleApp(): ng.IModule {
     return angular.module('app');
   }
-}
+// }

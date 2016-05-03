@@ -1,5 +1,6 @@
-﻿'use strict'
-module dogsrus.virtdog {
+﻿'use strict';
+import {IAnimal} from '../animals/IAnimal';
+// module dogsrus.virtdog {
   export enum DogTailState {
     wagging,
     elevated,
@@ -23,4 +24,4 @@ module dogsrus.virtdog {
     dogLonleyEndurance: number;
     dogLonleyDuration: number;
   }
-} 
+// } 

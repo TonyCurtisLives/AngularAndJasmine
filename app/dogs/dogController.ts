@@ -1,5 +1,13 @@
 ﻿'use strict';
-module dogsrus.virtdog {
+import {getModuleDog} from './dog.module';
+import {IAnimal} from '../animals/IAnimal';
+import {IDog} from './IDog';
+import {DogTailState} from './IDog';
+import {DogObject} from '../objects/dogObject';
+import {DogDomain} from '../domain/dogDomain';
+import {DogConfiguration} from '../core/config';
+import {EventNames} from '../core/constants';
+// module dogsrus.virtdog {
   export class DogController implements IDog {
     // interface first 
     public speciesName = 'Canis familiaris';
@@ -71,7 +79,7 @@ module dogsrus.virtdog {
         this.handleEvent(event, args);
       });
       this.$rootScope.$on(this.eventNames.masterFeed, (event, args) => {
-        this.eat(args);
+        this.handleEvent(event, args);
       });
       // this.$rootScope.$on(this.eventNames.masterThrow, (event, args) => {
       //   this.fetch(<DogObject>args);
@@ -80,7 +88,7 @@ module dogsrus.virtdog {
       //   this.eat(args);
       // });
       this.chewPromise = this.$interval(() => {
-        this.chewOnSomething()
+        this.chewOnSomething();
       }, this.chewUrgeInterval, 0, true);
       this.$rootScope.$on(this.eventNames.decapitate, (event, args) => {
         this.decapitateHandler();
@@ -135,13 +143,13 @@ module dogsrus.virtdog {
       this.dogList.push(this.dogConfig.startDog);
     }
     
-    private handleEvent(event, args) {
-      switch (event) {
+    private handleEvent(event: ng.IAngularEvent, args) {
+      switch (event.name) {
         case this.eventNames.masterThrow:
           this.fetch(<DogObject>args);
           break;
         case this.eventNames.masterFeed:
-          this.eat(args);
+          this.eat(<DogObject>args);
         default:
           this.displayConfusion(event, args);
           break;
@@ -294,12 +302,15 @@ module dogsrus.virtdog {
       this.blog(description, true);
     }
     
-    private displayConfusion(event, args) {
-      this.blog('I tilt my head at ' + args + ', akward...');
+    // todo: the event passed to $on does not allow identification of
+    // the sending controller when multiple controllers are on the same
+    // page, so maybe we start sending who did the action in future events
+    private displayConfusion(event: ng.IAngularEvent, args) {
+      this.blog('I tilt my head. ' + event.name + '? Akward...', false);
     }
 
   }
   (() => {
-    dogsrus.virtdog.getModuleDog().controller('dogController', DogController);
+    getModuleDog().controller('dogController', DogController);
   })();
-}
+// }

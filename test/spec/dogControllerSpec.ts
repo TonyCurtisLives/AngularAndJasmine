@@ -1,7 +1,13 @@
 ﻿/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular-mocks.d.ts" />
 /// <reference path="../../typings/main.d.ts" />
-// <reference path="../../scripts/typings/jasmine/jasmine.d.ts" />
+
+import {DogConfiguration} from '../../app/core/config';
+import {EventNames} from '../../app/core/constants';
+import {IDog} from '../../app/dogs/IDog';
+import {DogController} from '../../app/dogs/dogController';
+import {DogObject} from '../../app/objects/dogObject';
+
 describe('In the file dogController.js', function () {
   beforeEach(angular.mock.module('app.dog'));
   describe('the dogController\'s', function () {
@@ -9,23 +15,23 @@ describe('In the file dogController.js', function () {
     let $rootScope: ng.IRootScopeService,
       $controller: ng.IControllerService,
       $interval: ng.IIntervalService,
-      dogConfig: dogsrus.virtdog.DogConfiguration,
-      eventNames: dogsrus.virtdog.EventNames,
+      dogConfig: DogConfiguration,
+      eventNames: EventNames,
       dogConstructorParams: {
         $rootScope: ng.IRootScopeService;
         $interval: ng.IIntervalService;
-        dogConfig: dogsrus.virtdog.DogConfiguration;
-        eventNames: dogsrus.virtdog.EventNames
+        dogConfig: DogConfiguration;
+        eventNames: EventNames
       };
 
     dogConfig = {
       appTitle: 'Virtual Dog Demo',
       version: '1.0.0',
-      startDog: <dogsrus.virtdog.IDog>{},
+      startDog: <IDog>{},
       otherDogs: []
     };
 
-    eventNames = <dogsrus.virtdog.EventNames>{};
+    eventNames = <EventNames>{};
 
     beforeEach(inject(function ($injector: ng.auto.IInjectorService) {
       // we need to construct every time so set up for that
@@ -45,7 +51,7 @@ describe('In the file dogController.js', function () {
       it('should set familiarName', function () {
         dogConfig.startDog.familiarName = 'testRover';
         // todo: constructing this for every tests, s/b in beforeEach
-        let sut: dogsrus.virtdog.DogController = $controller(
+        let sut: DogController = $controller(
           'dogController', dogConstructorParams)
 
         expect(sut.familiarName).toEqual(dogConfig.startDog.familiarName);
@@ -54,7 +60,7 @@ describe('In the file dogController.js', function () {
       it('should set barkSound', function () {
         dogConfig.startDog.barkSound = 'testBark';
 
-        var sut: dogsrus.virtdog.DogController = $controller(
+        var sut: DogController = $controller(
           'dogController', dogConstructorParams)
 
         expect(sut.barkSound).toEqual(dogConfig.startDog.barkSound);
@@ -63,7 +69,7 @@ describe('In the file dogController.js', function () {
       it('should set age', function () {
         dogConfig.startDog.age = 7;
 
-        var sut: dogsrus.virtdog.DogController = $controller(
+        var sut: DogController = $controller(
           'dogController', dogConstructorParams)
 
         expect(sut.age).toEqual(dogConfig.startDog.age);
@@ -73,7 +79,7 @@ describe('In the file dogController.js', function () {
         var expectedBlog = 'Test Startup Blog';
         dogConfig.startDog.startupBlog = expectedBlog;
 
-        var sut: dogsrus.virtdog.DogController = $controller(
+        var sut: DogController = $controller(
           'dogController', dogConstructorParams)
 
         expect(sut.blogContent).toContain(expectedBlog);
@@ -85,11 +91,11 @@ describe('In the file dogController.js', function () {
       eventNames.masterThrow = 'masterThrow';
 
       it('should blog "master" and "threw"', function () {
-        var thrownObject = new dogsrus.virtdog.DogObject(
+        var thrownObject = new DogObject(
           'testObject', false, false);
         spyOn(thrownObject, 'chewOn');
 
-        var sut: dogsrus.virtdog.DogController = $controller(
+        var sut: DogController = $controller(
           'dogController', dogConstructorParams)
 
         expect(sut.blogContent).not.toContain('master');
@@ -103,12 +109,12 @@ describe('In the file dogController.js', function () {
       });
 
       describe('when thrown object is chewy, not edible:', function () {
-        let thrownObject = new dogsrus.virtdog.DogObject(
+        let thrownObject = new DogObject(
           'testChewyObject', true, false);
         it('should call chewOn for thrown object', function () {
           spyOn(thrownObject, 'chewOn');
 
-          var sut: dogsrus.virtdog.DogController = $controller(
+          var sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           $rootScope.$broadcast(eventNames.masterThrow, thrownObject);
@@ -118,14 +124,14 @@ describe('In the file dogController.js', function () {
       });
 
       describe('when thrown object is not chewy, not edible', function () {
-        let thrownObject = new dogsrus.virtdog.DogObject(
+        let thrownObject = new DogObject(
           'testNotChewyObject', false, false);
 
         // todo: fix
         it('should not call chewOn for thrown object', function () {
           spyOn(thrownObject, 'chewOn');
 
-          var sut: dogsrus.virtdog.DogController = $controller(
+          var sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           $rootScope.$broadcast(eventNames.masterThrow, thrownObject);
@@ -135,7 +141,7 @@ describe('In the file dogController.js', function () {
       });
 
       describe('when thrown object is edible', function () {
-        let thrownObject = new dogsrus.virtdog.DogObject(
+        let thrownObject = new DogObject(
           'testEdibleObject', false, true);
 
         beforeEach(function () {
@@ -144,7 +150,7 @@ describe('In the file dogController.js', function () {
 
         // todo: fix
         it('should not call chewOn for thrown object', function () {
-          var sut: dogsrus.virtdog.DogController = $controller(
+          var sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           $rootScope.$broadcast(eventNames.masterThrow, thrownObject);
@@ -154,7 +160,7 @@ describe('In the file dogController.js', function () {
 
         // todo: fix
         it('should not blog "returned" because dog eats it', function () {
-          var sut: dogsrus.virtdog.DogController = $controller(
+          var sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           $rootScope.$broadcast(eventNames.masterThrow, thrownObject);
@@ -169,7 +175,7 @@ describe('In the file dogController.js', function () {
     describe('eventHandler for chew urge interval expiration:', function () {
       dogConfig.startDog.chewUrgeInterval = 100;
       describe('with one chewy Object', function () {
-        let chewyObject = new dogsrus.virtdog.DogObject(
+        let chewyObject = new DogObject(
           'testChewyObject', true, false);
 
         beforeEach(function () {
@@ -178,7 +184,7 @@ describe('In the file dogController.js', function () {
 
         it('should call chewOn for chewy object', function () {
 
-          let sut: dogsrus.virtdog.DogController = $controller(
+          let sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           sut.chewObjects.push(chewyObject);
@@ -190,7 +196,7 @@ describe('In the file dogController.js', function () {
         });
 
         it('should blog "chewed"', function () {
-          var sut: dogsrus.virtdog.DogController = $controller(
+          var sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           sut.chewObjects.push(chewyObject);
@@ -203,7 +209,7 @@ describe('In the file dogController.js', function () {
         });
 
         it('should blog chewyObject name', function () {
-          var sut: dogsrus.virtdog.DogController = $controller(
+          var sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           sut.chewObjects.push(chewyObject);
@@ -218,12 +224,12 @@ describe('In the file dogController.js', function () {
       });
 
       describe('with three chewy objects, one being expensive', function () {
-        let expensiveChewyObject = new dogsrus.virtdog.DogObject(
+        let expensiveChewyObject = new DogObject(
           'expensiveChewyObject', true, false);
         expensiveChewyObject.expensive = true;
         let chewObjects = [
-          new dogsrus.virtdog.DogObject('junk', true, false),
-          new dogsrus.virtdog.DogObject('junk2', true, false)];
+          new DogObject('junk', true, false),
+          new DogObject('junk2', true, false)];
         chewObjects.push(expensiveChewyObject);
 
         beforeEach(function () {
@@ -231,7 +237,7 @@ describe('In the file dogController.js', function () {
         });
 
         it('should call chewOn for expensive object', function () {
-          var sut: dogsrus.virtdog.DogController = $controller(
+          var sut: DogController = $controller(
             'dogController', dogConstructorParams)
 
           sut.chewObjects.push(expensiveChewyObject);

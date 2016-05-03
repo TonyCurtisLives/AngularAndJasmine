@@ -1,5 +1,8 @@
-﻿'use strict'
-module dogsrus.virtdog {
+﻿'use strict';
+import {getModuleTunes} from './tunes.module';
+import {TunesDataService} from '../core/tunesDataService';
+import {TunesConfig} from '../core/constants';
+// module dogsrus.virtdog {
   export class TunesController {
     public data = {};
     public tracksToDroolOver = [];
@@ -26,6 +29,6 @@ module dogsrus.virtdog {
     }
   }
   (() => {
-    dogsrus.virtdog.getModuleTunes().controller('tunesController', TunesController);
+    getModuleTunes().controller('tunesController', TunesController);
   })();
-} 
+// } 

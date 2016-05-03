@@ -1,4 +1,8 @@
-﻿module dogsrus.virtdog {
+﻿import {getModulePeople} from './people.module';
+import {IAnimal} from '../animals/IAnimal';
+import {DogObject} from '../objects/dogObject';
+import {EventNames} from '../core/constants';
+// module dogsrus.virtdog {
   export class MasterAction {
     constructor(
       public actionName: string,
@@ -67,6 +71,6 @@
     }
   }
   (() => {
-    dogsrus.virtdog.getModulePeople().controller('masterController', MasterController);
+    getModulePeople().controller('masterController', MasterController);
   })();
-}
+// }

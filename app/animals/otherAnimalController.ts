@@ -1,4 +1,8 @@
-﻿module dogsrus.virtdog {
+﻿import {IAnimal} from './IAnimal';
+import {getModuleOtherAnimal} from './otherAnimal.module';
+import {EventNames} from '../core/constants';
+
+// module dogsrus.virtdog {
   export class OtherAnimalController {
     public otherAnimals: IAnimal[] = [];
     public selectedAnimal: IAnimal;
@@ -38,6 +42,6 @@
     }
   }
   (() => {
-    dogsrus.virtdog.getModuleOtherAnimal().controller('otherAnimalController', OtherAnimalController);
+    getModuleOtherAnimal().controller('otherAnimalController', OtherAnimalController);
   })();
-}
+// }

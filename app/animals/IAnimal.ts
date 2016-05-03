@@ -1,7 +1,7 @@
-﻿module dogsrus.virtdog {
+﻿// module dogsrus.virtdog {
   export interface IAnimal {
     speciesName: string;
     familiarName?: string;
     defaultAction: string;
   }
-}
+// }

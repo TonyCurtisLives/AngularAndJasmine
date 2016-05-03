@@ -1,19 +1,24 @@
-﻿describe('In the file dogObject.js', function () {
+﻿import * as dogObj from '../../app/objects/dogObject';
+let DogObject = dogObj.DogObject;
+let DogSpitState = dogObj.DogSpitState;
+let ObjectState = dogObj.ObjectState;
+
+describe('In the file dogObject.js', function () {
   describe('the dogObject\'s', function () {
-    let sut: dogsrus.virtdog.DogObject;
+    let sut: dogObj.DogObject;
     beforeEach(function () {
-      sut = new dogsrus.virtdog.DogObject('test', true, false);
+      sut = new DogObject('test', true, false);
     });
     describe('chewOn function', function () {
       describe('for an object with no dog spit', function () {
         it('should set spitState to someSpit', function () {
           expect(sut.spitState).toEqual(
-            dogsrus.virtdog.DogSpitState.noSpit);
+            DogSpitState.noSpit);
 
           sut.chewOn();
 
           expect(sut.spitState).toEqual(
-            dogsrus.virtdog.DogSpitState.someSpit);
+            DogSpitState.someSpit);
         });
       });
 
@@ -32,18 +37,15 @@
         beforeEach(function () {
           sut.expensive = true;
           sut.monetaryValue = 150;
-        });
-        it('should reduce the value by half', function () {
 
           sut.chewOn();
+        });
 
+        it('should reduce the value by half', function () {
           expect(sut.monetaryValue).toEqual(150 / 2);
         });
 
         it('should set expensive to false', function () {
-
-          sut.chewOn();
-
           expect(sut.expensive).toBeFalsy();
         });
       });
@@ -53,7 +55,7 @@
           it('should degrade state', function () {
             sut.chewOn();
 
-            expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.littleBitChewed);
+            expect(sut.state).toEqual(ObjectState.littleBitChewed);
           });
         });
         describe('with chewLimit of 10', function () {
@@ -63,7 +65,7 @@
           it('should degrade state', function () {
             sut.chewOn();
 
-            expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.littleBitChewed);
+            expect(sut.state).toEqual(ObjectState.littleBitChewed);
           });
           it('should reduce chewLimit', function () {
             sut.chewOn();
@@ -75,7 +77,7 @@
 
       describe('for an object with state of littleBitChewed', function () {
         beforeEach(function () {
-          sut.state = dogsrus.virtdog.ObjectState.littleBitChewed;
+          sut.state = ObjectState.littleBitChewed;
         });
         describe('with chewLimit of 11', function () {
           beforeEach(function () {
@@ -84,7 +86,7 @@
           it('should not degrade state', function () {
             sut.chewOn();
 
-            expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.littleBitChewed);
+            expect(sut.state).toEqual(ObjectState.littleBitChewed);
           });
           it('should reduce chewLimit', function () {
             sut.chewOn();
@@ -100,7 +102,7 @@
           it('should degrade state', function () {
             sut.chewOn();
 
-            expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.veryChewed);
+            expect(sut.state).toEqual(ObjectState.veryChewed);
           });
           it('should reduce chewLimit', function () {
             sut.chewOn();
@@ -113,14 +115,14 @@
           it('should degrade state', function () {
             sut.chewOn();
 
-            expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.veryChewed);
+            expect(sut.state).toEqual(ObjectState.veryChewed);
           });
         });
       });
 
       describe('for an object with state of veryChewed', function () {
         beforeEach(function () {
-          sut.state = dogsrus.virtdog.ObjectState.veryChewed;
+          sut.state = ObjectState.veryChewed;
         });
         describe('with chewLimit of 6', function () {
           beforeEach(function () {
@@ -129,7 +131,7 @@
           it('should not degrade state', function () {
             sut.chewOn();
 
-            expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.veryChewed);
+            expect(sut.state).toEqual(ObjectState.veryChewed);
           });
           it('should reduce chewLimit', function () {
             sut.chewOn();
@@ -145,7 +147,7 @@
           it('should degrade state', function () {
             sut.chewOn();
 
-            expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.structurallyDamaged);
+            expect(sut.state).toEqual(ObjectState.structurallyDamaged);
           });
           it('should reduce chewLimit', function () {
             sut.chewOn();
@@ -159,7 +161,7 @@
             it('should degrade state to structurallyDamaged', function () {
               sut.chewOn();
 
-              expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.structurallyDamaged);
+              expect(sut.state).toEqual(ObjectState.structurallyDamaged);
             });
           });
           describe('and shredable', function () {
@@ -169,7 +171,7 @@
             it('should degrade state to shredded', function () {
               sut.chewOn();
 
-              expect(sut.state).toEqual(dogsrus.virtdog.ObjectState.shredded);
+              expect(sut.state).toEqual(ObjectState.shredded);
             });
           });
         });

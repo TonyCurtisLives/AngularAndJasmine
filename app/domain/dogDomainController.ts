@@ -1,4 +1,9 @@
-﻿module dogsrus.virtdog {
+﻿import {getModuleDogDomain} from './domain.module';
+import {DogDomain} from './dogDomain';
+import {DogObject} from '../objects/dogObject';
+import {DogPlaces} from '../core/constants';
+import {EventNames} from '../core/constants';
+// module dogsrus.virtdog {
   export class DogDomainController {
     public placeObjects: DogObject[] = [];
     public place: DogDomain;
@@ -29,6 +34,6 @@
     }
   }
   (() => {
-    dogsrus.virtdog.getModuleDogDomain().controller('dogDomainController', DogDomainController);
+    getModuleDogDomain().controller('dogDomainController', DogDomainController);
   })();
-}
+// }

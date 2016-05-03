@@ -1,4 +1,7 @@
-﻿module dogsrus.virtdog {
+﻿import {IDog} from '../dogs/IDog';
+import {DogTailState} from '../dogs/IDog';
+import {getModuleCore} from './core.module';
+// module dogsrus.virtdog {
   export class DogConfiguration {
     public appTitle = 'Virtual Dog Demo';
     public version = '1.0.0';
@@ -67,6 +70,6 @@
     }
   }
   (() => {
-    dogsrus.virtdog.getModuleCore().value('dogConfig', new DogConfiguration());
+    getModuleCore().value('dogConfig', new DogConfiguration());
   })();
-} 
+// } 

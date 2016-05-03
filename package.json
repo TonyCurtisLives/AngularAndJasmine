@@ -12,12 +12,15 @@
     "karma-jasmine": "^0.3.8",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-spec-reporter": "0.0.26",
-    "phantomjs-prebuilt": "^2.1.7"
+    "live-server": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.7",
+    "systemjs": "^0.19.27"
   },
   "scripts": {
     "prestart": "npm install",
-    "start": "http-server -a 0.0.0.0 -p 8000"
+    "start": "live-server"
   },
   "author": "Tony Curtis",
   "license": "ISC"
 }
+

@@ -1,4 +1,6 @@
-﻿module dogsrus.virtdog {
+﻿import {getModuleCore} from './core.module';
+import {TunesConfig} from './constants';
+// module dogsrus.virtdog {
   export class TunesDataService {
     static $inject = ['$http', 'tunesConfig'];
     constructor(private $http: ng.IHttpService, private tunesConfig: TunesConfig) { }
@@ -46,6 +48,6 @@
     }
   }
   (() => {
-    dogsrus.virtdog.getModuleCore().service('tunesDataService', TunesDataService);
+    getModuleCore().service('tunesDataService', TunesDataService);
   })();
-}
+// }

@@ -1,4 +1,6 @@
-﻿module dogsrus.virtdog {
+﻿import {getModuleCore} from './core.module';
+import {DogDomain} from '../domain/dogDomain';
+// module dogsrus.virtdog {
   export class EventNames {
     public dogBark = 'dogBark';
     public dogChase = 'dogChase';
@@ -44,8 +46,8 @@
   }
 
   (() => {
-    dogsrus.virtdog.getModuleCore().constant('eventNames', new EventNames());
-    dogsrus.virtdog.getModuleCore().constant('tunesConfig', new TunesConfig());
-    dogsrus.virtdog.getModuleCore().constant('dogPlaces', new DogPlaces());
+    getModuleCore().constant('eventNames', new EventNames());
+    getModuleCore().constant('tunesConfig', new TunesConfig());
+    getModuleCore().constant('dogPlaces', new DogPlaces());
   })();
-}
+// }

@@ -1,5 +1,5 @@
 ﻿'use strict';
-module dogsrus.virtdog {
+// module dogsrus.virtdog {
   (() => {
     angular.module('app.core', [
     /*
@@ -20,4 +20,4 @@ module dogsrus.virtdog {
   export function getModuleCore(): ng.IModule {
     return angular.module('app.core');
   }
-}
+// }
