@@ -2,9 +2,9 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-span {
+/*span {
   font-style: italic;
-}
+}*/
 
 td {
   border-width: 3px;
@@ -15,6 +15,48 @@ td {
 .sliderParagraph {
   text-align: left;
   background-color: rgba(0, 128, 128, 0.1);
+}
+
+	.selectStyle select {
+		border: 0 !important;  /*Removes border*/
+		-webkit-appearance: none;  /*Removes default chrome and safari style*/
+		-moz-appearance: none; /* Removes Default Firefox style*/
+    appearance:none;
+		background: ivory url(selectArrow.png) no-repeat 90% center;
+		width: 100px; /*Width of select dropdown to give space for arrow image*/
+		text-indent: 0.01px; /* Removes default arrow from firefox*/
+		text-overflow: "";  /*Removes default arrow from firefox*/ /*My custom style for fonts*/
+		color: #000;
+		border-radius: 15px;
+		padding: 5px;
+		box-shadow: inset 0 0 5px rgba(000,000,000, 0.5);
+    font-weight: bold;
+	}
+  
+  .selectStyle select option {
+    font-weight: bold;
+  }
+  
+  .selectStyle :focus {
+    outline: none;
+  }
+  
+#buttonMasterAction {
+  height: 27px;
+  width: 110px;
+  margin-left: 70px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+#selectAction {
+  width: 110px;
+  background: ivory url(selectArrow.png) no-repeat 95% center;
+}
+
+#selectObject {
+  width: 230px;
+  background: ivory url(selectArrow.png) no-repeat 97% center;
 }
 
 #dogTextArea {
@@ -45,13 +87,46 @@ td {
 }
 
 #barkButton {
-  margin-left: -20px;
+  margin-left: -42px;
+  height: 27px;
+  width: 80px;
+  border-radius: 15px;
+  font-weight: bold;
+  background-color: lightblue;
 }
 
 #tunesButton {
-  margin-left: -33px;
+  margin-left: -42px;
+  height: 27px;
+  width: 80px;
+  border-radius: 15px;
+  font-weight: bold;
+  background-color: lightblue;
 }
 
 .column-layout {
   padding: 10px;
+}
+
+#selectPerson {
+  width: 120px;
+  background: ivory url(selectArrow.png) no-repeat 96% center;
+}
+
+#selectPersonAction {
+  width: 190px;
+  background: ivory url(selectArrow.png) no-repeat 96% center;
+}
+
+#selectAnimal {
+  width: 160px;
+  background: ivory url(selectArrow.png) no-repeat 96% center;
+}
+
+#personActionButton {
+  margin-left: 82px;
+  height: 27px;
+  width: 120px;
+  border-radius: 15px;
+  font-weight: bold;
 }
