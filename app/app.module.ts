@@ -1,4 +1,4 @@
-﻿/// <reference path="../scripts/typings/angularjs/angular.d.ts" />
+﻿/// <reference path="../typings/browser.d.ts" />
 'use strict';
 namespace dogsrus.virtdog {
   (() => {
@@ -14,7 +14,7 @@ namespace dogsrus.virtdog {
       'app.dogObject',
       'app.dog',
       'app.people',
-      'app.tunes',
+      'app.roverPhotos',
       'app.otherAnimal',
       'app.dogDomain'
     ]);

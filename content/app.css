@@ -41,12 +41,29 @@ td {
     outline: none;
   }
   
+.dogButtonStyle {
+  height: 24px;
+  border-radius: 14px;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  background-color: lightblue;
+  box-shadow: 0 4px #999;
+}
+  
+.dogButtonStyle:hover {
+  background-color: ivory;
+}
+
+.dogButtonStyle:active {
+  background-color: ivory;
+  box-shadow: 0 1px #666;
+  transform: translateY(3px);
+}
+
 #buttonMasterAction {
-  height: 27px;
   width: 110px;
   margin-left: 70px;
-  border-radius: 15px;
-  font-weight: bold;
 }
 
 #selectAction {
@@ -88,20 +105,12 @@ td {
 
 #barkButton {
   margin-left: -42px;
-  height: 27px;
   width: 80px;
-  border-radius: 15px;
-  font-weight: bold;
-  background-color: lightblue;
 }
 
-#tunesButton {
-  margin-left: -42px;
-  height: 27px;
-  width: 80px;
-  border-radius: 15px;
-  font-weight: bold;
-  background-color: lightblue;
+#buttonGetPhotos {
+  margin-left: 70px;
+  width: 130px;
 }
 
 .column-layout {
@@ -116,6 +125,11 @@ td {
 #selectPersonAction {
   width: 190px;
   background: ivory url(selectArrow.png) no-repeat 96% center;
+}
+
+#selectCamera {
+  width: 230px;
+  background: ivory url(selectArrow.png) no-repeat 96% center;  
 }
 
 #selectAnimal {

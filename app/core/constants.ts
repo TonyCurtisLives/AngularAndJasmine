@@ -29,10 +29,13 @@
     public changeDomain = 'changeDomain';
   }
 
-  export class TunesConfig {
-    public tunesUrl = 'http://ws.audioscrobbler.com/2.0/';
-    public apiKey = '42ffa848055f141ed5018c49334fce47';
-    public userName = 'FidoSonOfRover';
+  export class RoverConfig {
+    public roverUrl = 'http://localhost:8200//mars-photos/api/v1/rovers/curiosity/photos';
+    public apiKey = 'DEMO_KEY';
+    public camera = 'FHAZ';
+    public earthDate = '2015-8-26';
+    public roverName = 'curiosity';
+    public alternateUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos';
   }
 
   export class DogPlaces {
@@ -45,7 +48,7 @@
 
   (() => {
     dogsrus.virtdog.getModuleCore().constant('eventNames', new EventNames());
-    dogsrus.virtdog.getModuleCore().constant('tunesConfig', new TunesConfig());
+    dogsrus.virtdog.getModuleCore().constant('roverConfig', new RoverConfig());
     dogsrus.virtdog.getModuleCore().constant('dogPlaces', new DogPlaces());
   })();
 }

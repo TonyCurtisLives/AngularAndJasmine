@@ -16,7 +16,7 @@
           Object: <select id="selectObject" ng-model="master.selectedObject" ng-options="object.name for object in master.mastersObjects"></select>
           <br><br> 
           Action: <select id="selectAction" ng-model="master.selectedAction" ng-options="masterAction.actionName for masterAction in master.masterActions"></select>
-          $nbsp<button id="buttonMasterAction" ng-click="master.selectedAction.actionFunc(master.selectedObject)">Perform Action</button>
+          $nbsp<button class="dogButtonStyle" id="buttonMasterAction" ng-click="master.selectedAction.actionFunc(master.selectedObject)">Perform Action</button>
         </p>
       </div>
     </li>
@@ -42,7 +42,7 @@
         <br> Dog Blog
         <br>
         <div id="barkButtonDiv">
-          <button id="barkButton" ng-click="dog.testBark()">Bark</button>
+          <button class="dogButtonStyle" id="barkButton" ng-click="dog.testBark()">Bark</button>
         </div>
         <br>
         <div>
@@ -64,13 +64,28 @@
         <img src="../../content/IMG_2823.jpg" alt="" />
       </div>
     </li>
-
     <li>
+      <div class="selectStyle" ng-controller="roverPhotosController as roverController">
+        <!--<img ng-src="../../content/zeushome.jpg" alt=""/>-->
+        <img ng-src="{{roverController.roverPhotoUrl}}" alt="" />
+        <h1>Mars Rovers</h1>
+        <p class="sliderParagraph">
+          Camera: <select id="selectCamera" ng-model="roverController.roverCamera" ng-options="camera.full_name for camera in roverController.cameras"></select><br><br>
+          &nbsp<button class="dogButtonStyle" id="buttonGetPhotos" ng-click="roverController.getPhotos(roverController.roverCamera.name)">Get Rover Photos</button>
+          <!--Domain: <select ng-model="domainController.place" ng-options="dogPlace.name for dogPlace in domainController.places"
+            ng-change="domainController.domainSelected(domainController.place)">
+                  </select><br>-->
+          <br>
+        </p>
+      </div>
+    </li>
+
+    <!--<li>
       <div ng-controller="tunesController as tunes">
         <br> Dog Tunes
         <br>{{tunes.tunesError}}
         <div id="barkButtonDiv">
-          <button id="tunesButton" ng-click="tunes.getLovedTracks()">Get Tunes</button>
+          <button class="dogButtonStyle" id="tunesButton" ng-click="tunes.getLovedTracks()">Get Tunes</button>
         </div>
         <br>
         <div>
@@ -79,18 +94,18 @@
         </div>
         <br>
       </div>
-    </li>
+    </li>-->
 
     <li>
       <div class="selectStyle" ng-controller="peopleController as peopleCtrl">
-        <img src="../../content/zeuspostal2.gif" alt="" />
+        <img src="../../content/PostmanZeus7s.gif" alt="" />
         <h1>Other People</h1>
         <p class="sliderParagraph">
           Person: <select id="selectPerson" ng-model="peopleCtrl.selectedPerson" ng-options="person.familiarName for person in peopleCtrl.people"></select>
           <br><br>          
           Action: <select id="selectPersonAction" ng-model="peopleCtrl.selectedAction" ng-options="personAction.actionName for personAction in peopleCtrl.personActions"></select>
           <br><br>
-          <button id="personActionButton" ng-click="peopleCtrl.selectedAction.actionFunc(peopleCtrl.selectedPerson)">Perform Action</button>
+          <button class="dogButtonStyle" id="personActionButton" ng-click="peopleCtrl.selectedAction.actionFunc(peopleCtrl.selectedPerson)">Perform Action</button>
         </p>
       </div>
     </li>
