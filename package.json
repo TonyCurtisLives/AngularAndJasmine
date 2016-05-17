@@ -4,7 +4,15 @@
   "description": "App to demo AngularJs and associated techs",
   "main": "index.js",
   "devDependencies": {
-    "http-server": "^0.6.1"
+    "gulp": "^3.9.1",
+    "http-server": "^0.6.1",
+    "jasmine": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.26",
+    "phantomjs-prebuilt": "^2.1.7"
   },
   "scripts": {
     "prestart": "npm install",

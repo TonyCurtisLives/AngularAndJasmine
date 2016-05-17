@@ -1,34 +1,51 @@
 ﻿module dogsrus.virtdog {
   export class EventNames {
-    dogBark = 'dogBark';
-    dogChase = 'dogChase';
-    catMeow = 'catMeow';
-    catBO = 'catBO';
-    catMove = 'catMove';
-    catHiss = 'catHiss';
-    decapitate = 'decapitate';
-    masterCall = 'masterCall';
-    masterThrow = 'masterThrow';
-    masterFeed = 'masterFeed';
-    masterTake = 'masterTake';
-    motherNatureCalls1 = 'motherNatureCalls1';
-    motherNatureCalls2 = 'motherNatureCalls2';
-    hunger = 'hunger';
-    chewUrge = 'chewUrge';
-    exhaustion = 'exhaustion';
-    loneliness = 'loneliness';
-    excitement = 'excitement';
+    public dogBark = 'dogBark';
+    public dogChase = 'dogChase';
+    public catMeow = 'catMeow';
+    public catBO = 'catBO';
+    public catMove = 'catMove';
+    public catHiss = 'catHiss';
+    public decapitate = 'decapitate';
+    public masterCall = 'masterCall';
+    public masterThrow = 'masterThrow';
+    public masterFeed = 'masterFeed';
+    public masterTake = 'masterTake';
+    public motherNatureCalls1 = 'motherNatureCalls1';
+    public motherNatureCalls2 = 'motherNatureCalls2';
+    public hunger = 'hunger';
+    public chewUrge = 'chewUrge';
+    public exhaustion = 'exhaustion';
+    public loneliness = 'loneliness';
+    public excitement = 'excitement';
+    public layAround = 'layAround';
+    public animalRun = 'animalRun';
+    public personPet = 'personPet';
+    public personThreaten = 'personThreaten';
+    public commandSit = 'sit';
+    public commandLayDown = 'lay down';
+    public commandStay = 'stay';
+    public commandShake = 'shake';
+    public changeDomain = 'changeDomain';
   }
-
+  
   export class TunesConfig {
     tunesUrl = 'http://ws.audioscrobbler.com/2.0/';
     apiKey = '42ffa848055f141ed5018c49334fce47';
     userName = 'FidoSonOfRover';
   }
 
+  export class DogPlaces {
+    home: DogDomain = {name: 'home', imagePath: 'zeushome.jpg', indoors: true, placeObjects: []};
+    frontYard: DogDomain = {name: 'front yard', imagePath: 'zeusfrontyard.jpg', indoors: false, placeObjects: []};
+    backYard: DogDomain = {name: 'back yard', imagePath: 'zeusbackyard.jpg', indoors: false, placeObjects: []};
+    park: DogDomain = {name: 'park', imagePath: 'zeuspark.jpg', indoors: false, placeObjects: []};
+    bathroom: DogDomain = {name: 'bathroom', imagePath: 'fireplug.jpg', indoors: false, placeObjects: []};
+  }
+
   (() => {
     dogsrus.virtdog.getModuleCore().constant('eventNames', new EventNames());
     dogsrus.virtdog.getModuleCore().constant('tunesConfig', new TunesConfig());
+    dogsrus.virtdog.getModuleCore().constant('dogPlaces', new DogPlaces());
   })();
-
-} 
+}

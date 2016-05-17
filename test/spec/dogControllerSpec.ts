@@ -1,10 +1,12 @@
 ﻿/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
-/// <reference path="../../scripts/typings/jasmine/jasmine.d.ts" />
-describe("dogController.js", function () {
-  beforeEach(module('app.dog'));
-  describe('dogController', function () {
-    
-    var $rootScope: ng.IRootScopeService,
+/// <reference path="../../scripts/typings/angularjs/angular-mocks.d.ts" />
+/// <reference path="../../typings/main.d.ts" />
+// <reference path="../../scripts/typings/jasmine/jasmine.d.ts" />
+describe('In the file dogController.js', function () {
+  beforeEach(angular.mock.module('app.dog'));
+  describe('the dogController\'s', function () {
+
+    let $rootScope: ng.IRootScopeService,
       $controller: ng.IControllerService,
       $interval: ng.IIntervalService,
       dogConfig: dogsrus.virtdog.DogConfiguration,
@@ -17,11 +19,11 @@ describe("dogController.js", function () {
       };
 
     dogConfig = {
-      appTitle : 'Virtual Dog Demo',
-      version : '1.0.0',
+      appTitle: 'Virtual Dog Demo',
+      version: '1.0.0',
       startDog: <dogsrus.virtdog.IDog>{},
       otherDogs: []
-    }
+    };
 
     eventNames = <dogsrus.virtdog.EventNames>{};
 
@@ -38,15 +40,15 @@ describe("dogController.js", function () {
         eventNames: eventNames
       };
     }));
-    
-    describe('Constructor:', function () {
+
+    describe('constructor:', function () {
       it('should set familiarName', function () {
-          dogConfig.startDog.familiarName = 'testRover';
+        dogConfig.startDog.familiarName = 'testRover';
+        // todo: constructing this for every tests, s/b in beforeEach
+        let sut: dogsrus.virtdog.DogController = $controller(
+          'dogController', dogConstructorParams)
 
-          var sut: dogsrus.virtdog.DogController = $controller(
-            'dogController', dogConstructorParams)
-
-          expect(sut.familiarName).toEqual(dogConfig.startDog.familiarName);
+        expect(sut.familiarName).toEqual(dogConfig.startDog.familiarName);
       });
 
       it('should set barkSound', function () {
@@ -79,7 +81,7 @@ describe("dogController.js", function () {
 
     });
 
-    describe('On event masterThrow:', function () {
+    describe('eventHandler for the masterThrow event:', function () {
       eventNames.masterThrow = 'masterThrow';
 
       it('should blog "master" and "threw"', function () {
@@ -100,8 +102,8 @@ describe("dogController.js", function () {
         expect(sut.blogContent).toContain('threw');
       });
 
-      describe('when thrown object is chewy, not edible', function () {
-        var thrownObject = new dogsrus.virtdog.DogObject(
+      describe('when thrown object is chewy, not edible:', function () {
+        let thrownObject = new dogsrus.virtdog.DogObject(
           'testChewyObject', true, false);
         it('should call chewOn for thrown object', function () {
           spyOn(thrownObject, 'chewOn');
@@ -114,9 +116,9 @@ describe("dogController.js", function () {
           expect(thrownObject.chewOn).toHaveBeenCalled();
         });
       });
-      
+
       describe('when thrown object is not chewy, not edible', function () {
-        var thrownObject = new dogsrus.virtdog.DogObject(
+        let thrownObject = new dogsrus.virtdog.DogObject(
           'testNotChewyObject', false, false);
 
         // todo: fix
@@ -133,7 +135,7 @@ describe("dogController.js", function () {
       });
 
       describe('when thrown object is edible', function () {
-        var thrownObject = new dogsrus.virtdog.DogObject(
+        let thrownObject = new dogsrus.virtdog.DogObject(
           'testEdibleObject', false, true);
 
         beforeEach(function () {
@@ -163,10 +165,11 @@ describe("dogController.js", function () {
 
     });
 
-    describe('On chew urge interval expired', function () {
+    // todo: eliminate repetitive code
+    describe('eventHandler for chew urge interval expiration:', function () {
       dogConfig.startDog.chewUrgeInterval = 100;
-      describe('with one chewObject', function () {
-        var chewyObject = new dogsrus.virtdog.DogObject(
+      describe('with one chewy Object', function () {
+        let chewyObject = new dogsrus.virtdog.DogObject(
           'testChewyObject', true, false);
 
         beforeEach(function () {
@@ -175,14 +178,14 @@ describe("dogController.js", function () {
 
         it('should call chewOn for chewy object', function () {
 
-          var sut: dogsrus.virtdog.DogController = $controller(
+          let sut: dogsrus.virtdog.DogController = $controller(
             'dogController', dogConstructorParams)
 
           sut.chewObjects.push(chewyObject);
 
           $interval.flush(99);
           expect(chewyObject.chewOn).not.toHaveBeenCalled();
-          $interval.flush(2);
+          $interval.flush(1);
           expect(chewyObject.chewOn).toHaveBeenCalled();
         });
 
@@ -194,7 +197,7 @@ describe("dogController.js", function () {
 
           expect(sut.blogContent).not.toContain('chewed');
 
-          $interval.flush(101);
+          $interval.flush(100);
 
           expect(sut.blogContent).toContain('chewed');
         });
@@ -207,18 +210,18 @@ describe("dogController.js", function () {
 
           expect(sut.blogContent).not.toContain(chewyObject.name);
 
-          $interval.flush(101);
+          $interval.flush(100);
 
           expect(sut.blogContent).toContain(chewyObject.name);
         });
 
       });
 
-      describe('with three chewObjects', function () {
-        var expensiveChewyObject = new dogsrus.virtdog.DogObject(
+      describe('with three chewy objects, one being expensive', function () {
+        let expensiveChewyObject = new dogsrus.virtdog.DogObject(
           'expensiveChewyObject', true, false);
         expensiveChewyObject.expensive = true;
-        var chewObjects = [
+        let chewObjects = [
           new dogsrus.virtdog.DogObject('junk', true, false),
           new dogsrus.virtdog.DogObject('junk2', true, false)];
         chewObjects.push(expensiveChewyObject);
@@ -233,7 +236,7 @@ describe("dogController.js", function () {
 
           sut.chewObjects.push(expensiveChewyObject);
 
-          $interval.flush(101);
+          $interval.flush(100);
 
           expect(expensiveChewyObject.chewOn).toHaveBeenCalled();
         });

@@ -7,8 +7,9 @@
   }
 
   export class MasterController implements IAnimal {
-    speciesName: string = 'Homo Sapiens';
-    familiarName: string;
+    public speciesName: string = 'Homo Sapiens';
+    public familiarName: string;
+    public defaultAction: string;
 
     selectedAction: MasterAction;
     masterActions: MasterAction[] = [];
@@ -17,7 +18,7 @@
 
     static $inject = ['$rootScope', 'eventNames'];
     constructor(private $rootScope: ng.IRootScopeService, private eventNames: EventNames) {
-      this.familiarName = 'Bob';
+      this.familiarName = 'Dillon';
       this.initializeLists();
 
       // bind this to actions since they are called from html binding
