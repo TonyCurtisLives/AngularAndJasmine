@@ -1,19 +1,19 @@
 ﻿'use strict';
-module dogsrus.virtdog {
+namespace dogsrus.virtdog {
   (() => {
     angular.module('app.core', [
-    /*
-     * Angular modules
-     */
-        'ngRoute'
-    /*
-      * Our reusable cross app code modules
-      */
-        // exception service, logger service
-      
-    /*
-     * 3rd Party modules
-     */
+      /*
+       * Angular modules
+       */
+      'ngRoute'
+      /*
+        * Our reusable cross app code modules
+        */
+      // exception service, logger service
+
+      /*
+       * 3rd Party modules
+       */
 
     ]);
   })();

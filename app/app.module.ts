@@ -1,24 +1,22 @@
-﻿/// <reference path="../scripts/typings/angularjs/angular.d.ts" />
+﻿/// <reference path="../typings/browser.d.ts" />
 'use strict';
-module dogsrus.virtdog {
+namespace dogsrus.virtdog {
   (() => {
     angular.module('app', [
       // Everybody has access to these
       // so centralize registration here 
       // so feature modules don't need to register them 
-        
+
       'app.core',
-        
+
       // Feature Modules
-         
+
       'app.dogObject',
       'app.dog',
       'app.people',
-      'app.tunes',
+      'app.roverPhotos',
       'app.otherAnimal',
       'app.dogDomain'
-      //,'app.animals'
-      //,'app.places'
     ]);
   })();
   // we don't ever refer to the app module except in tests

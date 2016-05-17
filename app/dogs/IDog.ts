@@ -1,5 +1,5 @@
-﻿'use strict'
-module dogsrus.virtdog {
+﻿'use strict';
+namespace dogsrus.virtdog {
   export enum DogTailState {
     wagging,
     elevated,
@@ -23,4 +23,4 @@ module dogsrus.virtdog {
     dogLonleyEndurance: number;
     dogLonleyDuration: number;
   }
-} 
+}

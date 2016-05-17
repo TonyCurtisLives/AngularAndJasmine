@@ -1,4 +1,4 @@
-﻿module dogsrus.virtdog {
+﻿namespace dogsrus.virtdog {
   export class DogDomainController {
     public placeObjects: DogObject[] = [];
     public place: DogDomain;
@@ -8,7 +8,7 @@
     constructor(private $rootScope: ng.IRootScopeService, public dogPlaces: DogPlaces, private eventNames: EventNames) {
       this.initializeDomain();
     }
-    
+
     public domainSelected(domain: DogDomain) {
       this.$rootScope.$broadcast(this.eventNames.changeDomain, domain);
     }
@@ -23,7 +23,7 @@
       this.places.push(this.dogPlaces.bathroom);
       this.placeObjects.push(
         new DogObject('Really Nice Couch', true, false)
-        );
+      );
       this.placeObjects[0].expensive = true;
       this.placeObjects[0].monetaryValue = 2000;
     }

@@ -72,11 +72,11 @@ body{
   width: auto; height:100%;
   margin:0 auto;   
 }
-#categories li span{
+/*#categories li span{
   left:-100%; right:-100%;
   width: auto; height:100%;
   margin:0 auto;   
-}
+}*/
 #categories div h1, #categories div p{
   width:90%;
   padding:0 5%;

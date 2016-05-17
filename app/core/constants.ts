@@ -1,4 +1,4 @@
-﻿module dogsrus.virtdog {
+﻿namespace dogsrus.virtdog {
   export class EventNames {
     public dogBark = 'dogBark';
     public dogChase = 'dogChase';
@@ -28,24 +28,27 @@
     public commandShake = 'shake';
     public changeDomain = 'changeDomain';
   }
-  
-  export class TunesConfig {
-    tunesUrl = 'http://ws.audioscrobbler.com/2.0/';
-    apiKey = '42ffa848055f141ed5018c49334fce47';
-    userName = 'FidoSonOfRover';
+
+  export class RoverConfig {
+    public roverUrl = 'http://localhost:8200//mars-photos/api/v1/rovers/curiosity/photos';
+    public apiKey = 'DEMO_KEY';
+    public camera = 'FHAZ';
+    public earthDate = '2015-8-26';
+    public roverName = 'curiosity';
+    public alternateUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos';
   }
 
   export class DogPlaces {
-    home: DogDomain = {name: 'home', imagePath: 'zeushome.jpg', indoors: true, placeObjects: []};
-    frontYard: DogDomain = {name: 'front yard', imagePath: 'zeusfrontyard.jpg', indoors: false, placeObjects: []};
-    backYard: DogDomain = {name: 'back yard', imagePath: 'zeusbackyard.jpg', indoors: false, placeObjects: []};
-    park: DogDomain = {name: 'park', imagePath: 'zeuspark.jpg', indoors: false, placeObjects: []};
-    bathroom: DogDomain = {name: 'bathroom', imagePath: 'fireplug.jpg', indoors: false, placeObjects: []};
+    public home: DogDomain = { name: 'home', imagePath: 'zeushome.jpg', indoors: true, placeObjects: [] };
+    public frontYard: DogDomain = { name: 'front yard', imagePath: 'zeusfrontyard.jpg', indoors: false, placeObjects: [] };
+    public backYard: DogDomain = { name: 'back yard', imagePath: 'zeusbackyard.jpg', indoors: false, placeObjects: [] };
+    public park: DogDomain = { name: 'park', imagePath: 'zeuspark.jpg', indoors: false, placeObjects: [] };
+    public bathroom: DogDomain = { name: 'bathroom', imagePath: 'fireplug.jpg', indoors: false, placeObjects: [] };
   }
 
   (() => {
     dogsrus.virtdog.getModuleCore().constant('eventNames', new EventNames());
-    dogsrus.virtdog.getModuleCore().constant('tunesConfig', new TunesConfig());
+    dogsrus.virtdog.getModuleCore().constant('roverConfig', new RoverConfig());
     dogsrus.virtdog.getModuleCore().constant('dogPlaces', new DogPlaces());
   })();
 }

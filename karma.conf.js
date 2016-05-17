@@ -12,7 +12,6 @@ module.exports = function(config) {
       'app/dogs/idog.js',
       'app/core/config.js',
       'app/core/constants.js',
-      'app/core/tunesDataService.js',
       'app/objects/dogObject.module.js',
       'app/objects/dogObject.js',
       'app/dogs/dog.module.js',

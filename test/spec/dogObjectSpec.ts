@@ -39,7 +39,6 @@
 
           expect(sut.monetaryValue).toEqual(150 / 2);
         });
-
         it('should set expensive to false', function () {
 
           sut.chewOn();
